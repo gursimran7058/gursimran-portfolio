@@ -1,0 +1,65 @@
+/* Custom CSS Stylesheet for Gursimran Portfolio */
+/* Design Psychology & Diagonal Alignment System */
+
+@layer utilities {
+  /* Diagonal Flow Container & Step Utility Classes */
+  .diagonal-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .diagonal-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .diagonal-step-1 {
+      transform: translateY(0px) translateX(0px);
+    }
+    .diagonal-step-2 {
+      transform: translateY(6px) translateX(10px);
+    }
+    .diagonal-step-3 {
+      transform: translateY(12px) translateX(20px);
+    }
+    .diagonal-step-4 {
+      transform: translateY(18px) translateX(30px);
+    }
+  }
+
+  /* Diagonal Cascade Line Container */
+  .diagonal-cascade {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .diagonal-pill {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+
+  .diagonal-pill:hover {
+    transform: translateY(-2px) translateX(2px);
+  }
+
+  /* Uncluttered Copy & Spacing */
+  .declutter-text {
+    line-height: 1.65;
+    letter-spacing: -0.011em;
+  }
+
+  /* Clean Card Focus Border */
+  .neo-focus-ring {
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .neo-focus-ring:focus-within {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  }
+}

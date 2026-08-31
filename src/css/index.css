@@ -1,0 +1,159 @@
+@import './custom.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LIGHT MODE: Warm Mild-Colorful Aesthetic with Soft Sand/Cream and Harmonious Muted Colors */
+  --bg-primary: #F8F5EE;       /* Warm subtle oatmeal/beige */
+  --bg-card: #FFFFFF;          /* Pure crisp card surface */
+  --text-primary: #1A2238;     /* Sophisticated deep navy ink */
+  --text-secondary: #58637A;   /* Soft slate-navy secondary */
+  --border-color: #242E49;     /* Deep navy border defining neo-brutalist structure */
+  
+  /* Mild Colorful Accents */
+  --brand-green: #34D399;      /* Soft mint/emerald */
+  --brand-purple: #C4B5FD;     /* Soft lilac/lavender */
+  --brand-blue: #7DD3FC;       /* Soft sky azure */
+  --brand-yellow: #FDE68A;     /* Warm butter honey */
+  --brand-pink: #FBCFE8;       /* Gentle rose blossom */
+  --brand-beige: #F3ECE1;      /* Warm beige tint */
+  --shadow-offset: 4px 4px 0px #242E49;
+  --shadow-offset-hover: 6px 6px 0px #242E49;
+}
+
+html.dark {
+  /* DARK MODE: Navy Dark Blue with Elegant Warm Beige */
+  --bg-primary: #0A1128;       /* Deep Imperial Navy Blue */
+  --bg-card: #101B3B;          /* Elevated Midnight Navy card background */
+  --text-primary: #F4EEDD;     /* Warm creamy natural beige text */
+  --text-secondary: #C2CBD8;   /* Soft silvery-blue muted text */
+  --border-color: #D6C7A8;     /* Warm refined sand/beige border */
+  
+  /* Dark Mode Accents */
+  --brand-green: #2DD4BF;      /* Oceanic teal-mint */
+  --brand-purple: #DDD1B8;     /* Warm sandy champagne gold */
+  --brand-blue: #60A5FA;       /* Sapphire cyan glow */
+  --brand-yellow: #F4DE9C;     /* Warm vintage gold-beige */
+  --brand-pink: #E8B4B8;       /* Dusty beige-rose */
+  --brand-beige: #E6DCBF;      /* Signature beige accent */
+  --shadow-offset: 4px 4px 0px #040817;
+  --shadow-offset-hover: 6px 6px 0px #040817;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 9999px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #27272A;
+  }
+}
+
+@layer utilities {
+  /* Neo-Brutalist Cards */
+  .neo-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow-offset);
+    border-radius: 24px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .neo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-offset-hover);
+  }
+
+  /* Neo-Brutalist Buttons */
+  .neo-btn {
+    border: 2px solid var(--border-color);
+    box-shadow: 3px 3px 0px var(--border-color);
+    border-radius: 14px;
+    font-weight: 700;
+    transition: all 0.15s ease;
+  }
+
+  .neo-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0px var(--border-color);
+  }
+
+  .neo-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--border-color);
+  }
+
+  /* Pill Badges */
+  .neo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    border: 1.5px solid var(--border-color);
+  }
+
+  /* Background Floating Circles */
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.85;
+  }
+
+  .bg-circle-green {
+    background-color: var(--brand-green);
+  }
+
+  .bg-circle-purple {
+    background-color: var(--brand-purple);
+  }
+
+  .bg-circle-yellow {
+    background-color: var(--brand-yellow);
+  }
+
+  .bg-circle-blue {
+    background-color: var(--brand-blue);
+  }
+
+  .bg-circle-white {
+    background-color: var(--brand-beige);
+  }
+
+  /* Mobile responsiveness polish */
+  @media (max-width: 640px) {
+    .neo-card {
+      border-radius: 18px;
+      box-shadow: 3px 3px 0px var(--border-color);
+    }
+    .neo-btn {
+      border-radius: 12px;
+      box-shadow: 2px 2px 0px var(--border-color);
+    }
+  }
+}

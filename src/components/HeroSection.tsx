@@ -15,6 +15,7 @@ import {
   Trophy,
   ExternalLink
 } from 'lucide-react';
+import IMAGES from '../assets/images';
 
 interface HeroSectionProps {
   onCopyEmail: () => void;
@@ -45,70 +46,69 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="lg:col-span-7 flex flex-col space-y-5 sm:space-y-6"
+            className="lg:col-span-7 flex flex-col space-y-6"
           >
-            {/* Top Badge Strip */}
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="neo-badge bg-neo-green text-black text-[10px] sm:text-xs">
+            {/* Structured Diagonal Badge Flow */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 font-mono">
+              <span className="neo-badge bg-neo-green text-black text-[11px] diagonal-pill diagonal-step-1">
                 <Zap className="w-3.5 h-3.5 fill-black" />
                 <span>17 y/o Founder & Builder</span>
               </span>
-              <span className="neo-badge bg-neo-purple text-black text-[10px] sm:text-xs">
+              <span className="neo-badge bg-neo-purple text-black text-[11px] diagonal-pill diagonal-step-2">
                 <GraduationCap className="w-3.5 h-3.5" />
-                <span>B.C.M. Arya Model Sr. Sec. School</span>
+                <span>B.C.M. Arya (96.2%)</span>
               </span>
-              <span className="neo-badge bg-neo-yellow text-black text-[10px] sm:text-xs">
+              <span className="neo-badge bg-neo-yellow text-black text-[11px] diagonal-pill diagonal-step-3">
                 <Trophy className="w-3.5 h-3.5" />
-                <span>Class 10th: 96.2% Topper</span>
+                <span>Capital Markets Intern</span>
               </span>
             </div>
 
             {/* Display Headline */}
             <h1 className="text-2.5xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-neo-text font-display">
-              Building civic tech, managing operations, and excelling in{' '}
+              Building civic tech, managing operations & leading{' '}
               <span className="bg-neo-purple text-black px-2 py-0.5 rounded-lg inline-block my-1 border-2 border-black">
-                commercial leadership.
+                commercial ventures.
               </span>
             </h1>
 
-            {/* Authentic Bio */}
-            <p className="text-sm sm:text-base lg:text-lg text-neo-muted leading-relaxed max-w-[60ch]">
-              I’m <strong className="text-neo-text font-bold">Gursimran Singh Jodhka</strong> from Ludhiana, Punjab. A 17-year-old high-school Commerce student at <strong className="text-neo-text font-semibold">B.C.M. Arya Model Sr. Sec. School</strong> (scored <strong className="text-emerald-500 font-bold">96.2%</strong> in Class 10th). Completed capital markets training internship at <strong className="text-neo-text font-semibold">Ludhiana Stock and Capital Limited</strong> (rated "Excellent"). Currently building <strong className="text-neo-text font-semibold">BookMyEmergency</strong> for social welfare, manager at <strong className="text-neo-text font-semibold">New Era Electronics</strong>, and core literacy member in <strong className="text-neo-text font-semibold">Youth Capital Foundation</strong>.
+            {/* Decluttered, Crisp Bio */}
+            <p className="text-sm sm:text-base text-neo-muted leading-relaxed declutter-text max-w-[55ch]">
+              High-school Commerce scholar at <strong className="text-neo-text font-bold">B.C.M. Arya</strong> (<strong className="text-emerald-500 font-bold">96.2%</strong>). Trained at <strong className="text-neo-text font-semibold">Ludhiana Stock & Capital Ltd</strong> (rated "Excellent"). Founder of <strong className="text-neo-text font-semibold">BookMyEmergency</strong>, Manager at <strong className="text-neo-text font-semibold">New Era Electronics</strong>, and core literacy member at <strong className="text-neo-text font-semibold">Youth Capital Foundation</strong>.
             </p>
 
-            {/* Key Milestone Pills */}
-            <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold">
-              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text shadow-[2px_2px_0px_var(--border-color)] flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 text-amber-500" />
-                <span>96.2% CBSE (99 Fin Markets, 97 Maths)</span>
-              </span>
-              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text shadow-[2px_2px_0px_var(--border-color)] flex items-center gap-1.5">
-                <Trophy className="w-3.5 h-3.5 text-emerald-500" />
-                <span>Ludhiana Stock & Capital Ltd Intern</span>
-              </span>
-              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text shadow-[2px_2px_0px_var(--border-color)] flex items-center gap-1.5">
-                <HeartHandshake className="w-3.5 h-3.5 text-rose-500" />
-                <span>BookMyEmergency</span>
-              </span>
-              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text shadow-[2px_2px_0px_var(--border-color)] flex items-center gap-1.5">
-                <Building2 className="w-3.5 h-3.5 text-blue-500" />
-                <span>Manager @ New Era Electronics</span>
-              </span>
-              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text shadow-[2px_2px_0px_var(--border-color)]">
-                🏏 Cricket All-rounder
-              </span>
-              <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text shadow-[2px_2px_0px_var(--border-color)]">
-                🏋️‍♂️ Gym 5x/week
-              </span>
+            {/* Structured Diagonal Grid Alignment for Key Milestones */}
+            <div className="space-y-2 pt-1">
+              <div className="text-xs font-mono font-bold uppercase tracking-wider text-neo-muted">
+                Key Credentials & Track Record
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-mono font-bold">
+                <div className="px-3 py-2 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] diagonal-pill diagonal-step-1">
+                  <Award className="w-4 h-4 text-amber-500 shrink-0" />
+                  <span className="truncate">96.2% CBSE (99 Fin Markets, 97 Maths)</span>
+                </div>
+                <div className="px-3 py-2 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] diagonal-pill diagonal-step-2">
+                  <Trophy className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span className="truncate">Ludhiana Stock Exchange Training</span>
+                </div>
+                <div className="px-3 py-2 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] diagonal-pill diagonal-step-3">
+                  <HeartHandshake className="w-4 h-4 text-rose-500 shrink-0" />
+                  <span className="truncate">BookMyEmergency Social Welfare Tech</span>
+                </div>
+                <div className="px-3 py-2 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] diagonal-pill diagonal-step-4">
+                  <Building2 className="w-4 h-4 text-blue-500 shrink-0" />
+                  <span className="truncate">Manager @ New Era Electronics</span>
+                </div>
+              </div>
             </div>
 
-            {/* Campus Highlights */}
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] font-mono text-neo-muted">
+            {/* Clean Campus Stays Row */}
+            <div className="p-3 rounded-2xl bg-neo-bg border border-neo-border flex flex-wrap items-center gap-2 text-[11px] font-mono text-neo-muted">
               <span className="font-extrabold text-neo-text">Campus Hostel Stays:</span>
-              <span className="px-2 py-0.5 rounded-md bg-neo-bg border border-neo-border text-neo-text">IIT Ropar (1-Day Hostel Stay)</span>
-              <span className="px-2 py-0.5 rounded-md bg-neo-bg border border-neo-border text-neo-text">IIT Delhi (Hostel Stay)</span>
-              <span className="px-2 py-0.5 rounded-md bg-neo-bg border border-neo-border text-neo-text">IIT Mandi (Hostel Stay)</span>
-              <span className="px-2 py-0.5 rounded-md bg-neo-bg border border-neo-border text-neo-text">IIIT Delhi (Hostel Stay)</span>
+              <span className="px-2 py-0.5 rounded-md bg-neo-card border border-neo-border text-neo-text">IIT Ropar</span>
+              <span className="px-2 py-0.5 rounded-md bg-neo-card border border-neo-border text-neo-text">IIT Delhi</span>
+              <span className="px-2 py-0.5 rounded-md bg-neo-card border border-neo-border text-neo-text">IIT Mandi</span>
+              <span className="px-2 py-0.5 rounded-md bg-neo-card border border-neo-border text-neo-text">IIIT Delhi</span>
             </div>
 
             {/* Action Buttons */}
@@ -131,13 +131,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Direct Connect Chips */}
-            <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-mono font-bold text-neo-muted">
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono font-bold text-neo-muted">
               <span className="hidden sm:inline">Direct:</span>
               <button
                 onClick={onCopyEmail}
                 className="flex items-center gap-1 hover:text-emerald-500 transition-colors"
               >
-                <Mail className="w-3.5 h-3.5" />
+                <Mail className="w-3.5 h-3.5 text-neo-green" />
                 <span className="text-[11px] sm:text-xs">gursimran7058@gmail.com</span>
               </button>
               <span>•</span>
@@ -147,7 +147,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 hover:text-emerald-500 transition-colors"
               >
-                <Linkedin className="w-3.5 h-3.5" />
+                <Linkedin className="w-3.5 h-3.5 text-neo-blue" />
                 <span className="text-[11px] sm:text-xs">LinkedIn</span>
               </a>
               <span>•</span>
@@ -155,7 +155,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 onClick={onCopyPhone}
                 className="flex items-center gap-1 hover:text-emerald-500 transition-colors"
               >
-                <Phone className="w-3.5 h-3.5" />
+                <Phone className="w-3.5 h-3.5 text-neo-purple" />
                 <span className="text-[11px] sm:text-xs">+91 7508002768</span>
               </button>
             </div>
@@ -172,7 +172,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="neo-card p-4 sm:p-5 relative overflow-hidden group">
               <div className="flex items-center gap-3 sm:gap-4">
                 <img
-                  src="./assets/gursimran-avatar.png"
+                  src={IMAGES.avatar}
                   alt="Gursimran Singh Jodhka"
                   className="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-neo-border shadow-[3px_3px_0px_var(--border-color)] shrink-0"
                 />
