@@ -133,14 +133,25 @@ export const CredentialsSection: React.FC = () => {
                 className="max-h-full max-w-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300 shadow-sm"
                 loading="lazy"
                 onError={(e) => {
-                  const fallbackMap: Record<string, string> = {
-                    'lse-training-cert': './assets/ludhiana-stock-exchange-certificate.png',
-                    'bcm-award-honour-trophy': './assets/trophy-10th-96.jpg',
-                    'cbse-class10-marksheet': './assets/cbse-marksheet-10th.jpg',
-                    'bcm-appreciation-certificate': './assets/bcm-certificate-academic-excellence.png'
+                  const target = e.target as HTMLImageElement;
+                  const filenameMap: Record<string, string> = {
+                    'lse-training-cert': 'ludhiana-stock-exchange-certificate.png',
+                    'bcm-award-honour-trophy': 'trophy-10th-96.jpg',
+                    'cbse-class10-marksheet': 'cbse-marksheet-10th.jpg',
+                    'bcm-appreciation-certificate': 'bcm-certificate-academic-excellence.png'
                   };
-                  if (fallbackMap[item.id]) {
-                    (e.target as HTMLImageElement).src = fallbackMap[item.id];
+                  const fname = filenameMap[item.id];
+                  if (fname) {
+                    if (!target.dataset.triedFallback1) {
+                      target.dataset.triedFallback1 = 'true';
+                      target.src = `./assets/${fname}`;
+                    } else if (!target.dataset.triedFallback2) {
+                      target.dataset.triedFallback2 = 'true';
+                      target.src = `assets/${fname}`;
+                    } else if (!target.dataset.triedFallback3) {
+                      target.dataset.triedFallback3 = 'true';
+                      target.src = `https://gursimran7058.github.io/gursimran-portfolio/assets/${fname}`;
+                    }
                   }
                 }}
               />

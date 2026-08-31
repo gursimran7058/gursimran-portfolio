@@ -176,7 +176,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   alt="Gursimran Singh Jodhka"
                   className="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-neo-border shadow-[3px_3px_0px_var(--border-color)] shrink-0"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = './assets/gursimran-avatar.png';
+                    const target = e.target as HTMLImageElement;
+                    if (!target.dataset.triedFallback1) {
+                      target.dataset.triedFallback1 = 'true';
+                      target.src = './assets/gursimran-avatar.png';
+                    } else if (!target.dataset.triedFallback2) {
+                      target.dataset.triedFallback2 = 'true';
+                      target.src = 'assets/gursimran-avatar.png';
+                    } else if (!target.dataset.triedFallback3) {
+                      target.dataset.triedFallback3 = 'true';
+                      target.src = 'https://gursimran7058.github.io/gursimran-portfolio/assets/gursimran-avatar.png';
+                    }
                   }}
                 />
                 <div className="space-y-1 min-w-0">
