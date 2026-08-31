@@ -132,6 +132,17 @@ export const CredentialsSection: React.FC = () => {
                 alt={item.alt}
                 className="max-h-full max-w-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300 shadow-sm"
                 loading="lazy"
+                onError={(e) => {
+                  const fallbackMap: Record<string, string> = {
+                    'lse-training-cert': './assets/ludhiana-stock-exchange-certificate.png',
+                    'bcm-award-honour-trophy': './assets/trophy-10th-96.jpg',
+                    'cbse-class10-marksheet': './assets/cbse-marksheet-10th.jpg',
+                    'bcm-appreciation-certificate': './assets/bcm-certificate-academic-excellence.png'
+                  };
+                  if (fallbackMap[item.id]) {
+                    (e.target as HTMLImageElement).src = fallbackMap[item.id];
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold backdrop-blur-[2px]">
                 <Maximize2 className="w-4 h-4" />
