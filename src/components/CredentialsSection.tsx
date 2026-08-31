@@ -27,7 +27,7 @@ export const CREDENTIALS_DATA: CredentialItem[] = [
     category: 'Internship',
     grade: 'Rated "Excellent"',
     description: 'Underwent professional training in capital market operations, clearing mechanisms, institutional trading, and regulatory compliances. Evaluated with the top "Excellent" grade by the Incharge (Training) and Director.',
-    image: '/assets/ludhiana-stock-exchange-certificate.png',
+    image: './assets/ludhiana-stock-exchange-certificate.png',
     alt: 'Ludhiana Stock and Capital Limited Training Certificate',
     badge: 'Capital Markets Internship',
     highlights: [
@@ -45,7 +45,7 @@ export const CREDENTIALS_DATA: CredentialItem[] = [
     category: 'Academic Honor',
     grade: '96.2% Aggregate',
     description: 'Prestigious golden star trophy presented to Gursimran Singh Jodhka for stellar performance in Class 10 Board examinations, securing an aggregate of 96.2% in Session 2025-26.',
-    image: '/assets/trophy-10th-96.jpg',
+    image: './assets/trophy-10th-96.jpg',
     alt: 'Award of Honour Trophy 96.2% Class 10 BCM Arya Model School',
     badge: '96.2% Academic Topper',
     highlights: [
@@ -63,7 +63,7 @@ export const CREDENTIALS_DATA: CredentialItem[] = [
     category: 'Board Examination',
     grade: '96.2% Aggregate (All A1s)',
     description: 'Official Marks Statement cum Certificate for Secondary School Examination 2026 (Roll No. 13188082). Outstanding subject scores including 99 in Financial Markets and 97 in Mathematics.',
-    image: '/assets/cbse-marksheet-10th.jpg',
+    image: './assets/cbse-marksheet-10th.jpg',
     alt: 'CBSE Marks Statement cum Certificate 96.2% Gursimran Singh Jodhka',
     badge: '99/100 Fin Markets',
     highlights: [
@@ -82,7 +82,7 @@ export const CREDENTIALS_DATA: CredentialItem[] = [
     category: 'Academic Honor',
     grade: '96.2% Excellence',
     description: 'Certificate of Appreciation presented to Gursimar Singh Jodhka for securing 96.2% in Class X in recognition of outstanding achievement and exemplary commitment in multifaceted learning.',
-    image: '/assets/bcm-certificate-academic-excellence.png',
+    image: './assets/bcm-certificate-academic-excellence.png',
     alt: 'BCM Arya Certificate of Appreciation Award of Academic Excellence',
     badge: 'Academic Excellence Award',
     highlights: [

@@ -172,7 +172,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="neo-card p-4 sm:p-5 relative overflow-hidden group">
               <div className="flex items-center gap-3 sm:gap-4">
                 <img
-                  src="/assets/gursimran-avatar.png"
+                  src="./assets/gursimran-avatar.png"
                   alt="Gursimran Singh Jodhka"
                   className="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-neo-border shadow-[3px_3px_0px_var(--border-color)] shrink-0"
                 />

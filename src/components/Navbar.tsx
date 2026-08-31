@@ -75,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
           >
             <div className="relative">
               <img
-                src="/assets/gursimran-avatar.png"
+                src="./assets/gursimran-avatar.png"
                 alt="Gursimran Singh Jodhka"
                 className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-neo-border shadow-[2px_2px_0px_var(--border-color)] group-hover:scale-105 transition-transform"
                 onError={(e) => {
