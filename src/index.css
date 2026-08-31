@@ -3,37 +3,37 @@
 @tailwind utilities;
 
 :root {
-  /* LIGHT MODE: High-End Studio Luxury (Warm Silk Alabaster & Royal Emerald Gold) */
-  --bg-primary: #F8F4EC;       /* Rich warm silk champagne alabaster */
+  /* LIGHT MODE: Champagne Silk Studio (Alabaster Silk & Royal Emerald Gold) */
+  --bg-primary: #F6F2EA;       /* Warm silk champagne alabaster */
   --bg-card: #FFFFFF;          /* Pure porcelain silk card surface */
-  --text-primary: #090D16;     /* High-contrast deep obsidian ink */
+  --text-primary: #0B0F19;     /* High-contrast deep obsidian ink */
   --text-secondary: #475569;   /* Refined metallic slate steel */
   --border-color: #1E293B;     /* Crisp high-contrast obsidian border */
   
   /* Rich Vibrant Luxury Palette (Light Mode Accents) */
   --brand-yellow: #D97706;     /* Imperial Metallic Amber Gold */
-  --brand-green: #059669;      /* Royal Emerald Jewel */
+  --brand-green: #047857;      /* Royal Emerald Jewel */
   --brand-blue: #0284C7;       /* Royal Sapphire Azure */
-  --brand-purple: #7C3AED;     /* Crown Amethyst Velvet */
-  --brand-pink: #E11D48;       /* Sunset Crimson Ruby */
+  --brand-purple: #6D28D9;     /* Crown Amethyst Velvet */
+  --brand-pink: #BE123C;       /* Sunset Crimson Ruby */
   --brand-beige: #F3ECE1;      /* Warm Silk Cream */
   
   --shadow-offset: 5px 5px 0px #1E293B;
   --shadow-offset-hover: 9px 9px 0px #1E293B;
-  --card-glow: rgba(217, 119, 6, 0.2);
+  --card-glow: rgba(217, 119, 6, 0.22);
   --aura-color: rgba(217, 119, 6, 0.12);
 }
 
 html.dark {
-  /* DARK MODE: Luxury Imperial Midnight (Obsidian Space & Champagne Liquid Gold) */
-  --bg-primary: #040711;       /* Deepest obsidian velvet space */
-  --bg-card: #0D1322;          /* Elevated midnight sapphire card background */
-  --text-primary: #FAF5EB;     /* Warm champagne liquid silk text */
-  --text-secondary: #94A3B8;   /* Silvery platinum slate muted text */
+  /* DARK MODE: Velvet Obsidian & Rose Gold / Neon Cyber Emerald */
+  --bg-primary: #04060E;       /* Ultra-deep obsidian midnight space */
+  --bg-card: #0C101D;          /* Elevated midnight sapphire card background */
+  --text-primary: #FFFBF5;     /* Champagne pearl cream silk text */
+  --text-secondary: #CBD5E1;   /* Silvery platinum slate muted text */
   --border-color: #334155;     /* Refined metallic border */
   
   /* Vibrant Dark Mode Luxury Accents */
-  --brand-yellow: #FBBF24;     /* Shimmering Liquid Gold */
+  --brand-yellow: #FBBF24;     /* Shimmering Champagne Gold */
   --brand-green: #34D399;      /* Glowing Jade Emerald */
   --brand-blue: #38BDF8;       /* Electric Azure Cyan */
   --brand-purple: #C084FC;     /* Cyber Royal Violet */
@@ -42,8 +42,8 @@ html.dark {
   
   --shadow-offset: 5px 5px 0px #010308;
   --shadow-offset-hover: 9px 9px 0px #010308;
-  --card-glow: rgba(251, 191, 36, 0.28);
-  --aura-color: rgba(56, 189, 248, 0.16);
+  --card-glow: rgba(251, 191, 36, 0.3);
+  --aura-color: rgba(244, 114, 182, 0.14);
 }
 
 /* LUXURY THEME PALETTE PRESETS */
@@ -51,7 +51,7 @@ html.dark {
 /* Preset 1: Gold & Obsidian (Default Imperial Luxury) */
 html[data-palette="gold"] {
   --brand-yellow: #D97706;
-  --brand-green: #059669;
+  --brand-green: #047857;
   --brand-purple: #B45309;
 }
 html.dark[data-palette="gold"] {
@@ -99,7 +99,9 @@ html.dark[data-palette="sapphire"] {
 @layer base {
   body {
     background-color: var(--bg-primary);
-    background-image: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.07) 0%, transparent 60%);
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(217, 119, 6, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(4, 120, 87, 0.08) 0%, transparent 40%);
     color: var(--text-primary);
     transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
@@ -107,7 +109,10 @@ html.dark[data-palette="sapphire"] {
   }
 
   .dark body {
-    background-image: radial-gradient(ellipse at 50% 0%, rgba(217, 119, 6, 0.12) 0%, rgba(4, 7, 17, 1) 70%);
+    background-image: 
+      radial-gradient(circle at 20% 15%, rgba(244, 114, 182, 0.12) 0%, transparent 45%),
+      radial-gradient(circle at 80% 75%, rgba(52, 211, 153, 0.12) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.08) 0%, transparent 60%);
   }
 
   /* Custom Clean Luxury Scrollbar */
@@ -151,7 +156,7 @@ html.dark[data-palette="sapphire"] {
     -webkit-backdrop-filter: blur(20px);
   }
   .dark .neo-glass {
-    background: rgba(13, 19, 34, 0.88);
+    background: rgba(12, 16, 29, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
