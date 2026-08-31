@@ -1,59 +1,124 @@
-@import './custom.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* LIGHT MODE: Warm Mild-Colorful Aesthetic with Soft Sand/Cream and Harmonious Muted Colors */
-  --bg-primary: #F8F5EE;       /* Warm subtle oatmeal/beige */
-  --bg-card: #FFFFFF;          /* Pure crisp card surface */
-  --text-primary: #1A2238;     /* Sophisticated deep navy ink */
-  --text-secondary: #58637A;   /* Soft slate-navy secondary */
-  --border-color: #242E49;     /* Deep navy border defining neo-brutalist structure */
+  /* LIGHT MODE: Champagne Silk Studio (Alabaster Silk & Royal Emerald Gold) */
+  --bg-primary: #F6F2EA;       /* Warm silk champagne alabaster */
+  --bg-card: #FFFFFF;          /* Pure porcelain silk card surface */
+  --text-primary: #0B0F19;     /* High-contrast deep obsidian ink */
+  --text-secondary: #475569;   /* Refined metallic slate steel */
+  --border-color: #1E293B;     /* Crisp high-contrast obsidian border */
   
-  /* Mild Colorful Accents */
-  --brand-green: #34D399;      /* Soft mint/emerald */
-  --brand-purple: #C4B5FD;     /* Soft lilac/lavender */
-  --brand-blue: #7DD3FC;       /* Soft sky azure */
-  --brand-yellow: #FDE68A;     /* Warm butter honey */
-  --brand-pink: #FBCFE8;       /* Gentle rose blossom */
-  --brand-beige: #F3ECE1;      /* Warm beige tint */
-  --shadow-offset: 4px 4px 0px #242E49;
-  --shadow-offset-hover: 6px 6px 0px #242E49;
+  /* Rich Vibrant Luxury Palette (Light Mode Accents) */
+  --brand-yellow: #D97706;     /* Imperial Metallic Amber Gold */
+  --brand-green: #047857;      /* Royal Emerald Jewel */
+  --brand-blue: #0284C7;       /* Royal Sapphire Azure */
+  --brand-purple: #6D28D9;     /* Crown Amethyst Velvet */
+  --brand-pink: #BE123C;       /* Sunset Crimson Ruby */
+  --brand-beige: #F3ECE1;      /* Warm Silk Cream */
+  
+  --shadow-offset: 5px 5px 0px #1E293B;
+  --shadow-offset-hover: 9px 9px 0px #1E293B;
+  --card-glow: rgba(217, 119, 6, 0.22);
+  --aura-color: rgba(217, 119, 6, 0.12);
 }
 
 html.dark {
-  /* DARK MODE: Navy Dark Blue with Elegant Warm Beige */
-  --bg-primary: #0A1128;       /* Deep Imperial Navy Blue */
-  --bg-card: #101B3B;          /* Elevated Midnight Navy card background */
-  --text-primary: #F4EEDD;     /* Warm creamy natural beige text */
-  --text-secondary: #C2CBD8;   /* Soft silvery-blue muted text */
-  --border-color: #D6C7A8;     /* Warm refined sand/beige border */
+  /* DARK MODE: Velvet Obsidian & Rose Gold / Neon Cyber Emerald */
+  --bg-primary: #04060E;       /* Ultra-deep obsidian midnight space */
+  --bg-card: #0C101D;          /* Elevated midnight sapphire card background */
+  --text-primary: #FFFBF5;     /* Champagne pearl cream silk text */
+  --text-secondary: #CBD5E1;   /* Silvery platinum slate muted text */
+  --border-color: #334155;     /* Refined metallic border */
   
-  /* Dark Mode Accents */
-  --brand-green: #2DD4BF;      /* Oceanic teal-mint */
-  --brand-purple: #DDD1B8;     /* Warm sandy champagne gold */
-  --brand-blue: #60A5FA;       /* Sapphire cyan glow */
-  --brand-yellow: #F4DE9C;     /* Warm vintage gold-beige */
-  --brand-pink: #E8B4B8;       /* Dusty beige-rose */
-  --brand-beige: #E6DCBF;      /* Signature beige accent */
-  --shadow-offset: 4px 4px 0px #040817;
-  --shadow-offset-hover: 6px 6px 0px #040817;
+  /* Vibrant Dark Mode Luxury Accents */
+  --brand-yellow: #FBBF24;     /* Shimmering Champagne Gold */
+  --brand-green: #34D399;      /* Glowing Jade Emerald */
+  --brand-blue: #38BDF8;       /* Electric Azure Cyan */
+  --brand-purple: #C084FC;     /* Cyber Royal Violet */
+  --brand-pink: #F472B6;       /* Rose Velvet Glow */
+  --brand-beige: #E6C894;      /* Pure Gold Beige Accent */
+  
+  --shadow-offset: 5px 5px 0px #010308;
+  --shadow-offset-hover: 9px 9px 0px #010308;
+  --card-glow: rgba(251, 191, 36, 0.3);
+  --aura-color: rgba(244, 114, 182, 0.14);
+}
+
+/* LUXURY THEME PALETTE PRESETS */
+
+/* Preset 1: Gold & Obsidian (Default Imperial Luxury) */
+html[data-palette="gold"] {
+  --brand-yellow: #D97706;
+  --brand-green: #047857;
+  --brand-purple: #B45309;
+}
+html.dark[data-palette="gold"] {
+  --brand-yellow: #FBBF24;
+  --brand-green: #34D399;
+  --brand-purple: #F59E0B;
+}
+
+/* Preset 2: Emerald Capital (Finance & Venture Vibe) */
+html[data-palette="emerald"] {
+  --brand-green: #059669;
+  --brand-yellow: #10B981;
+  --brand-blue: #0D9488;
+}
+html.dark[data-palette="emerald"] {
+  --brand-green: #34D399;
+  --brand-yellow: #6EE7B7;
+  --brand-blue: #2DD4BF;
+}
+
+/* Preset 3: Royal Amethyst (Founder & Tech Innovation Vibe) */
+html[data-palette="amethyst"] {
+  --brand-purple: #7C3AED;
+  --brand-pink: #EC4899;
+  --brand-yellow: #A855F7;
+}
+html.dark[data-palette="amethyst"] {
+  --brand-purple: #C084FC;
+  --brand-pink: #F472B6;
+  --brand-yellow: #E879F9;
+}
+
+/* Preset 4: Cyber Sapphire (Futuristic Azure Vibe) */
+html[data-palette="sapphire"] {
+  --brand-blue: #0284C7;
+  --brand-green: #06B6D4;
+  --brand-yellow: #38BDF8;
+}
+html.dark[data-palette="sapphire"] {
+  --brand-blue: #38BDF8;
+  --brand-green: #22D3EE;
+  --brand-yellow: #7DD3FC;
 }
 
 @layer base {
   body {
     background-color: var(--bg-primary);
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(217, 119, 6, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(4, 120, 87, 0.08) 0%, transparent 40%);
     color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    min-height: 100vh;
   }
 
-  /* Custom Clean Scrollbar */
+  .dark body {
+    background-image: 
+      radial-gradient(circle at 20% 15%, rgba(244, 114, 182, 0.12) 0%, transparent 45%),
+      radial-gradient(circle at 80% 75%, rgba(52, 211, 153, 0.12) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.08) 0%, transparent 60%);
+  }
+
+  /* Custom Clean Luxury Scrollbar */
   ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
   }
   ::-webkit-scrollbar-track {
     background: var(--bg-primary);
@@ -63,37 +128,51 @@ html.dark {
     border-radius: 9999px;
   }
   .dark ::-webkit-scrollbar-thumb {
-    background: #27272A;
+    background: #334155;
+    border-radius: 9999px;
   }
 }
 
 @layer utilities {
-  /* Neo-Brutalist Cards */
+  /* Luxury Neo-Brutalist Cards */
   .neo-card {
     background-color: var(--bg-card);
     border: 2px solid var(--border-color);
     box-shadow: var(--shadow-offset);
     border-radius: 24px;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
   }
 
   .neo-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-offset-hover);
+    transform: translateY(-5px) scale(1.006);
+    box-shadow: var(--shadow-offset-hover), 0 15px 35px -10px var(--card-glow);
   }
 
-  /* Neo-Brutalist Buttons */
+  /* Glassmorphism Card Variation */
+  .neo-glass {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .dark .neo-glass {
+    background: rgba(12, 16, 29, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Neo-Brutalist Buttons with Metallic Sheen */
   .neo-btn {
     border: 2px solid var(--border-color);
-    box-shadow: 3px 3px 0px var(--border-color);
+    box-shadow: 3.5px 3.5px 0px var(--border-color);
     border-radius: 14px;
-    font-weight: 700;
-    transition: all 0.15s ease;
+    font-weight: 800;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .neo-btn:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 5px 5px 0px var(--border-color);
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px var(--border-color);
   }
 
   .neo-btn:active {
@@ -105,17 +184,18 @@ html.dark {
   .neo-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 0.35rem 0.85rem;
     border-radius: 9999px;
-    border: 1.5px solid var(--border-color);
+    border: 2px solid var(--border-color);
+    box-shadow: 3px 3px 0px var(--border-color);
   }
 
-  /* Background Floating Circles */
+  /* Background Floating Circles with Pulse Glow */
   .bg-circle {
     position: absolute;
     border-radius: 50%;
@@ -123,6 +203,12 @@ html.dark {
     pointer-events: none;
     z-index: 0;
     opacity: 0.85;
+    animation: floatSlow 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes floatSlow {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-16px) rotate(8deg); }
   }
 
   .bg-circle-green {
@@ -145,15 +231,38 @@ html.dark {
     background-color: var(--brand-beige);
   }
 
+  /* Luxury Shimmer Gold Effect */
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      var(--text-primary) 0%,
+      var(--brand-yellow) 40%,
+      #F59E0B 50%,
+      var(--brand-yellow) 60%,
+      var(--text-primary) 100%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 3.5s linear infinite;
+  }
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
   /* Mobile responsiveness polish */
   @media (max-width: 640px) {
     .neo-card {
-      border-radius: 18px;
-      box-shadow: 3px 3px 0px var(--border-color);
+      border-radius: 20px;
+      box-shadow: 3.5px 3.5px 0px var(--border-color);
     }
     .neo-btn {
       border-radius: 12px;
-      box-shadow: 2px 2px 0px var(--border-color);
+      box-shadow: 2.5px 2.5px 0px var(--border-color);
     }
   }
 }
