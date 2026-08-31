@@ -92,7 +92,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-neo-bg text-neo-text selection:bg-neo-yellow selection:text-black transition-colors duration-400 overflow-x-hidden relative">
-      {/* Interactive Cursor Aura Spotlight */}
+      {/* Interactive Cursor Aura Spotlight & Spark Explosions */}
       <InteractiveAura />
 
       {/* 3-Column Split Navigation */}
@@ -102,6 +102,11 @@ export const App: React.FC = () => {
         onOpenCommand={() => setIsCommandOpen(true)}
         onOpenCustomizer={() => setIsCustomizerOpen(true)}
         onTriggerEasterEgg={() => setIsEasterEggOpen(true)}
+        currentPalette={palette}
+        onSelectPalette={(p) => {
+          setPalette(p);
+          showToast(`Applied ${p.toUpperCase()} luxury palette! ✨`);
+        }}
       />
 
       {/* Main Content */}
@@ -144,7 +149,7 @@ export const App: React.FC = () => {
         currentPalette={palette}
         onSelectPalette={(p) => {
           setPalette(p);
-          showToast(`Applied ${p.toUpperCase()} luxury palette!`);
+          showToast(`Applied ${p.toUpperCase()} luxury palette! ✨`);
         }}
         soundEnabled={soundEnabled}
         onToggleSound={() => setSoundEnabled(!soundEnabled)}

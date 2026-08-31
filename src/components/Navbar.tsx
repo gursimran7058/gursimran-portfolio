@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Sun, Moon, ArrowRight, Menu, X, Palette, Sparkles } from 'lucide-react';
 import IMAGES from '../assets/images';
 import { sound } from '../utils/audio';
+import { PaletteTheme } from './ThemeCustomizerModal';
 
 interface NavbarProps {
   darkMode: boolean;
@@ -10,6 +11,8 @@ interface NavbarProps {
   onOpenCommand: () => void;
   onOpenCustomizer: () => void;
   onTriggerEasterEgg: () => void;
+  currentPalette: PaletteTheme;
+  onSelectPalette: (palette: PaletteTheme) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -18,6 +21,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCommand,
   onOpenCustomizer,
   onTriggerEasterEgg,
+  currentPalette,
+  onSelectPalette,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('hero');
@@ -56,6 +61,13 @@ export const Navbar: React.FC<NavbarProps> = ({
       setAvatarClicks(0);
     }
   };
+
+  const PALETTES: { id: PaletteTheme; color: string; label: string }[] = [
+    { id: 'gold', color: '#F59E0B', label: 'Imperial Gold' },
+    { id: 'emerald', color: '#10B981', label: 'Jade Emerald' },
+    { id: 'amethyst', color: '#C084FC', label: 'Royal Violet' },
+    { id: 'sapphire', color: '#38BDF8', label: 'Cyber Azure' },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 py-3 transition-all duration-300">
@@ -133,8 +145,26 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
 
-          {/* Right Links & Theme Palette Controls */}
+          {/* Right Links & Interactive Theme Palette Dots */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Quick Live Palette Swatches */}
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-xl bg-neo-bg border border-neo-border">
+              {PALETTES.map((pal) => (
+                <button
+                  key={pal.id}
+                  onClick={() => {
+                    onSelectPalette(pal.id);
+                    sound.playSuccess();
+                  }}
+                  className={`w-3.5 h-3.5 rounded-full border transition-transform ${
+                    currentPalette === pal.id ? 'scale-125 border-black shadow-sm ring-1 ring-amber-400' : 'border-transparent hover:scale-110 opacity-70'
+                  }`}
+                  style={{ backgroundColor: pal.color }}
+                  title={`Apply ${pal.label} theme`}
+                />
+              ))}
+            </div>
+
             <a
               href="#work"
               onClick={() => sound.playClick(460, 'sine')}
@@ -164,7 +194,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               title="Customize Luxury Palette & Sound"
             >
               <Palette className="w-4 h-4" />
-              <span className="text-[10px] font-extrabold uppercase hidden lg:inline">Theme Studio</span>
+              <span className="text-[10px] font-extrabold uppercase hidden lg:inline">Studio</span>
             </button>
 
             {/* Quick Dark/Light Toggle */}
