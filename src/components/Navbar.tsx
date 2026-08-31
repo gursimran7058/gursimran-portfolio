@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Moon, ArrowRight, Menu, X, Clock, Sparkles } from 'lucide-react';
+import { Sun, Moon, ArrowRight, Menu, X, Palette, Sparkles } from 'lucide-react';
 import IMAGES from '../assets/images';
+import { sound } from '../utils/audio';
 
 interface NavbarProps {
   darkMode: boolean;
   onToggleTheme: () => void;
   onOpenCommand: () => void;
+  onOpenCustomizer: () => void;
+  onTriggerEasterEgg: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenCommand }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  darkMode,
+  onToggleTheme,
+  onOpenCommand,
+  onOpenCustomizer,
+  onTriggerEasterEgg,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('hero');
+  const [avatarClicks, setAvatarClicks] = useState<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,15 +45,28 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleAvatarClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    sound.playClick(500 + avatarClicks * 100, 'sine');
+    const newCount = avatarClicks + 1;
+    setAvatarClicks(newCount);
+    if (newCount >= 5) {
+      sound.playSuccess();
+      onTriggerEasterEgg();
+      setAvatarClicks(0);
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 py-3 transition-all duration-300">
       <div className="max-w-6xl mx-auto">
-        {/* 3-Column Split Navigation Bar (Inspired by varneet.in) */}
+        {/* 3-Column Split Navigation Bar */}
         <nav className="neo-card py-2.5 px-3.5 sm:px-6 flex items-center justify-between backdrop-blur-md">
           {/* Left Links */}
           <div className="hidden md:flex items-center gap-5">
             <a
               href="#hero"
+              onClick={() => sound.playClick(400, 'sine')}
               className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
                 activeSection === 'hero' ? 'text-neo-green font-black' : 'hover:text-emerald-500'
               }`}
@@ -52,6 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
             </a>
             <a
               href="#credentials"
+              onClick={() => sound.playClick(420, 'sine')}
               className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
                 activeSection === 'credentials' ? 'text-neo-green font-black' : 'hover:text-emerald-500'
               }`}
@@ -60,6 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
             </a>
             <a
               href="#now"
+              onClick={() => sound.playClick(440, 'sine')}
               className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
                 activeSection === 'now' ? 'text-neo-green font-black' : 'hover:text-emerald-500'
               }`}
@@ -68,11 +93,11 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
             </a>
           </div>
 
-          {/* Center Emblem Avatar with Pop */}
-          <a
-            href="#hero"
-            className="flex items-center gap-2.5 group select-none"
-            title="Gursimran Singh Jodhka — Home"
+          {/* Center Emblem Avatar with Easter Egg Pop */}
+          <div
+            onClick={handleAvatarClick}
+            className="flex items-center gap-2.5 group select-none cursor-pointer"
+            title="Click 5x to Unlock Trophy Achievement!"
           >
             <div className="relative">
               <img
@@ -93,22 +118,26 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
                   }
                 }}
               />
-              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-neo-green rounded-full border-1.5 border-neo-border" />
+              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-neo-green rounded-full border-1.5 border-neo-border animate-pulse" />
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-xs sm:text-sm font-extrabold tracking-tight font-display text-neo-text">
-                Gursimran
+              <span className="text-xs sm:text-sm font-extrabold tracking-tight font-display text-neo-text flex items-center gap-1">
+                <span>Gursimran</span>
+                {avatarClicks > 0 && (
+                  <span className="text-[10px] text-amber-500 font-mono">({avatarClicks}/5)</span>
+                )}
               </span>
               <span className="text-[10px] font-mono text-neo-muted font-bold">
                 17 y/o • BCM Arya
               </span>
             </div>
-          </a>
+          </div>
 
-          {/* Right Links & Theme Toggle */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Right Links & Theme Palette Controls */}
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="#work"
+              onClick={() => sound.playClick(460, 'sine')}
               className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
                 activeSection === 'work' ? 'text-neo-green font-black' : 'hover:text-emerald-500'
               }`}
@@ -117,6 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
             </a>
             <a
               href="#experience"
+              onClick={() => sound.playClick(480, 'sine')}
               className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
                 activeSection === 'experience' ? 'text-neo-green font-black' : 'hover:text-emerald-500'
               }`}
@@ -124,9 +154,25 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
               Roadmap
             </a>
 
-            {/* Theme Toggle Button */}
+            {/* Aesthetic Palette Studio Button */}
             <button
-              onClick={onToggleTheme}
+              onClick={() => {
+                onOpenCustomizer();
+                sound.playClick(600, 'sine');
+              }}
+              className="p-2 rounded-xl border-2 border-neo-border bg-neo-yellow text-black neo-btn flex items-center gap-1 text-xs"
+              title="Customize Luxury Palette & Sound"
+            >
+              <Palette className="w-4 h-4" />
+              <span className="text-[10px] font-extrabold uppercase hidden lg:inline">Theme Studio</span>
+            </button>
+
+            {/* Quick Dark/Light Toggle */}
+            <button
+              onClick={() => {
+                onToggleTheme();
+                sound.playThemeSwitch();
+              }}
               className="p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text neo-btn flex items-center justify-center"
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
@@ -140,6 +186,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
             {/* Let's Talk CTA Button */}
             <a
               href="#contact"
+              onClick={() => sound.playClick(700, 'sine')}
               className="px-4 py-2 rounded-xl bg-neo-green text-black font-extrabold text-xs neo-btn flex items-center gap-1.5"
             >
               <span>Let's Talk</span>
@@ -147,17 +194,33 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
             </a>
           </div>
 
-          {/* Mobile Menu & Theme Toggle */}
+          {/* Mobile Navigation Controls */}
           <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={onToggleTheme}
+              onClick={() => {
+                onOpenCustomizer();
+                sound.playClick(600, 'sine');
+              }}
+              className="p-2 rounded-xl border-2 border-neo-border bg-neo-yellow text-black"
+              title="Theme Studio"
+            >
+              <Palette className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => {
+                onToggleTheme();
+                sound.playThemeSwitch();
+              }}
               aria-label="Toggle theme"
               className="p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text"
             >
               {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => {
+                setMobileMenuOpen(!mobileMenuOpen);
+                sound.playClick(300, 'sine');
+              }}
               aria-label="Toggle navigation menu"
               className="p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text"
             >
@@ -184,7 +247,10 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  sound.playClick(400, 'sine');
+                }}
                 className="text-sm font-extrabold uppercase py-1.5 px-2 rounded-lg text-neo-text hover:bg-neo-green hover:text-black transition-colors"
               >
                 {link.label}

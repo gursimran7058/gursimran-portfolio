@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, CheckCircle2, Maximize2, X } from 'lucide-react';
 import IMAGES from '../assets/images';
+import { sound } from '../utils/audio';
 
 interface CredentialItem {
   id: string;
@@ -97,6 +98,11 @@ export const CREDENTIALS_DATA: CredentialItem[] = [
 export const CredentialsSection: React.FC = () => {
   const [activeImage, setActiveImage] = useState<CredentialItem | null>(null);
 
+  const openDocument = (item: CredentialItem) => {
+    setActiveImage(item);
+    sound.playSuccess();
+  };
+
   return (
     <section id="credentials" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-neo-border">
       {/* Section Header */}
@@ -124,7 +130,7 @@ export const CredentialsSection: React.FC = () => {
           >
             {/* Image Preview Box with click to open */}
             <div
-              onClick={() => setActiveImage(item)}
+              onClick={() => openDocument(item)}
               className="relative h-56 sm:h-64 bg-zinc-100 dark:bg-zinc-900 border-b-2 border-neo-border cursor-pointer overflow-hidden flex items-center justify-center p-3"
             >
               <img
@@ -193,7 +199,7 @@ export const CredentialsSection: React.FC = () => {
 
               {/* Action Button */}
               <button
-                onClick={() => setActiveImage(item)}
+                onClick={() => openDocument(item)}
                 className="mt-3 w-full py-2.5 rounded-xl bg-neo-bg border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-2 hover:bg-neo-yellow hover:text-black transition-all"
               >
                 <Maximize2 className="w-3.5 h-3.5" />

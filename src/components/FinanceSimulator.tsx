@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, TrendingUp, Target, Flame, Sparkles } from 'lucide-react';
+import { Calculator, TrendingUp, Target, Flame, Sparkles, Zap, Award } from 'lucide-react';
+import { sound } from '../utils/audio';
 
 interface FinanceSimulatorProps {
   onShowToast: (msg: string) => void;
@@ -55,6 +56,14 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
     return `₹${Math.round(val).toLocaleString('en-IN')}`;
   };
 
+  const setSipPreset = (inv: number, y: number, r: number) => {
+    setMonthlyInvest(inv);
+    setYears(y);
+    setRate(r);
+    sound.playSuccess();
+    onShowToast(`SIP Preset Loaded: ₹${inv.toLocaleString()}/mo @ ${r}% for ${y} yrs!`);
+  };
+
   return (
     <section id="simulator" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-neo-border">
       {/* Header */}
@@ -76,7 +85,10 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
       {/* Tabs */}
       <div className="flex flex-wrap items-center gap-2 mb-8">
         <button
-          onClick={() => setActiveTab('sip')}
+          onClick={() => {
+            setActiveTab('sip');
+            sound.playClick(500, 'sine');
+          }}
           className={`px-4 py-2.5 rounded-xl text-xs font-mono font-extrabold neo-btn transition-all ${
             activeTab === 'sip' ? 'bg-neo-green text-black' : 'bg-neo-card text-neo-text'
           }`}
@@ -84,7 +96,10 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
           📈 SIP & Compounding Engine
         </button>
         <button
-          onClick={() => setActiveTab('dcf')}
+          onClick={() => {
+            setActiveTab('dcf');
+            sound.playClick(550, 'sine');
+          }}
           className={`px-4 py-2.5 rounded-xl text-xs font-mono font-extrabold neo-btn transition-all ${
             activeTab === 'dcf' ? 'bg-neo-purple text-black' : 'bg-neo-card text-neo-text'
           }`}
@@ -92,7 +107,10 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
           🎯 DCF Valuation Model
         </button>
         <button
-          onClick={() => setActiveTab('startup')}
+          onClick={() => {
+            setActiveTab('startup');
+            sound.playClick(600, 'sine');
+          }}
           className={`px-4 py-2.5 rounded-xl text-xs font-mono font-extrabold neo-btn transition-all ${
             activeTab === 'startup' ? 'bg-neo-yellow text-black' : 'bg-neo-card text-neo-text'
           }`}
@@ -105,10 +123,27 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
       {activeTab === 'sip' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 neo-card p-6 sm:p-8 space-y-6">
+            {/* Quick Presets */}
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-neo-muted flex-wrap">
+              <span>Presets:</span>
+              <button
+                onClick={() => setSipPreset(5000, 15, 12)}
+                className="px-2.5 py-1 rounded-lg bg-neo-bg border border-neo-border text-neo-text hover:bg-neo-green hover:text-black transition-colors"
+              >
+                🌱 Student Saver (₹5k)
+              </button>
+              <button
+                onClick={() => setSipPreset(25000, 25, 15)}
+                className="px-2.5 py-1 rounded-lg bg-neo-bg border border-neo-border text-neo-text hover:bg-neo-yellow hover:text-black transition-colors"
+              >
+                🚀 High Compound (₹25k)
+              </button>
+            </div>
+
             <div className="space-y-3">
               <div className="flex justify-between text-xs font-mono font-bold text-neo-text">
                 <span>Monthly Investment</span>
-                <span className="text-emerald-500">₹{monthlyInvest.toLocaleString('en-IN')} / mo</span>
+                <span className="text-emerald-500 font-extrabold">₹{monthlyInvest.toLocaleString('en-IN')} / mo</span>
               </div>
               <input
                 type="range"
@@ -155,7 +190,10 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
             <div className="pt-2 flex items-center justify-between border-t-2 border-neo-border text-xs font-mono font-bold text-neo-muted">
               <span>Adjust for 6% Inflation:</span>
               <button
-                onClick={() => setAdjustInflation(!adjustInflation)}
+                onClick={() => {
+                  setAdjustInflation(!adjustInflation);
+                  sound.playClick(450, 'sine');
+                }}
                 className={`px-3 py-1 rounded-lg border-2 border-neo-border text-xs font-mono font-bold transition-all ${
                   adjustInflation
                     ? 'bg-neo-green text-black'
@@ -175,7 +213,7 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
 
             <div className="text-center space-y-1">
               <div className="text-xs font-mono text-neo-muted">Total Projected Corpus</div>
-              <div className="text-4xl sm:text-5xl font-black font-mono text-neo-text">
+              <div className="text-4xl sm:text-5xl font-black font-mono text-neo-text shimmer-text">
                 {formatINR(futureValue)}
               </div>
             </div>
@@ -215,7 +253,7 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
             <div className="space-y-3">
               <div className="flex justify-between text-xs font-mono font-bold text-neo-text">
                 <span>Annual Revenue (₹ Cr)</span>
-                <span className="text-neo-purple">₹{revenue} Cr</span>
+                <span className="text-neo-purple font-extrabold">₹{revenue} Cr</span>
               </div>
               <input
                 type="range"
@@ -283,7 +321,7 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
 
             <div className="text-center space-y-1">
               <div className="text-xs font-mono text-neo-muted">Estimated Enterprise Value</div>
-              <div className="text-4xl sm:text-5xl font-black font-mono text-neo-text">
+              <div className="text-4xl sm:text-5xl font-black font-mono text-neo-text shimmer-text">
                 ₹{Math.round(intrinsicVal).toLocaleString('en-IN')} Cr
               </div>
             </div>

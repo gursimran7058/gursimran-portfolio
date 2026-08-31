@@ -11,6 +11,7 @@ import {
   ArrowUpRight,
   GraduationCap
 } from 'lucide-react';
+import { sound } from '../utils/audio';
 
 interface ContactSectionProps {
   onCopyEmail: () => void;
@@ -41,10 +42,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) {
       onShowToast('Please fill out all fields.');
+      sound.playClick(300, 'sawtooth');
       return;
     }
 
     setFormState((prev) => ({ ...prev, sending: true }));
+    sound.playClick(600, 'sine');
     setTimeout(() => {
       setFormState({
         name: '',
@@ -53,13 +56,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         sending: false,
         sent: true
       });
+      sound.playSuccess();
       onShowToast('Message transmitted! Gursimran will get back to you.');
     }, 1000);
   };
 
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-neo-border">
-      {/* Single Large Card CTA Banner (Inspired by varneet.in .free-cta-card) */}
+      {/* Single Large Card CTA Banner */}
       <div className="neo-card p-6 sm:p-10 lg:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Side: Pitch & Direct Contact Channels */}
@@ -79,7 +83,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             {/* Contact Action Buttons */}
             <div className="space-y-3 pt-2">
               <div
-                onClick={onCopyEmail}
+                onClick={() => {
+                  onCopyEmail();
+                  sound.playSuccess();
+                }}
                 className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between cursor-pointer hover:border-neo-green transition-all shadow-[2px_2px_0px_var(--border-color)] group"
               >
                 <div className="flex items-center gap-3">
@@ -100,6 +107,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
               <a
                 href="tel:+917508002768"
+                onClick={() => sound.playClick(600, 'sine')}
                 className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between hover:border-neo-purple transition-all shadow-[2px_2px_0px_var(--border-color)] group block"
               >
                 <div className="flex items-center gap-3">
@@ -123,6 +131,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 href="https://www.linkedin.com/in/gursimran-singh-jodhka-75a361321/"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => sound.playClick(650, 'sine')}
                 className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between hover:border-neo-blue transition-all shadow-[2px_2px_0px_var(--border-color)] group"
               >
                 <div className="flex items-center gap-3">

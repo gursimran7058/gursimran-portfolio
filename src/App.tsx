@@ -9,19 +9,31 @@ import { ContactSection } from './components/ContactSection';
 import { CommandPalette } from './components/CommandPalette';
 import { ProjectModal } from './components/ProjectModal';
 import { Toast } from './components/Toast';
+import { InteractiveAura } from './components/InteractiveAura';
+import { ThemeCustomizerModal, PaletteTheme } from './components/ThemeCustomizerModal';
+import { EasterEggBanner } from './components/EasterEggBanner';
+import { sound } from './utils/audio';
 import { Project } from './types';
 
 export const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : false; // Default to clean light studio mode like varneet.in
+    return saved ? saved === 'dark' : true; // Default to luxury dark mode
   });
 
+  const [palette, setPalette] = useState<PaletteTheme>(() => {
+    const saved = localStorage.getItem('palette');
+    return (saved as PaletteTheme) || 'gold';
+  });
+
+  const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
+  const [isCustomizerOpen, setIsCustomizerOpen] = useState<boolean>(false);
+  const [isEasterEggOpen, setIsEasterEggOpen] = useState<boolean>(false);
   const [isCommandOpen, setIsCommandOpen] = useState<boolean>(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Sync theme with HTML class and localStorage
+  // Sync dark theme with HTML class and localStorage
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -32,9 +44,20 @@ export const App: React.FC = () => {
     }
   }, [darkMode]);
 
+  // Sync palette theme with HTML data attribute and localStorage
+  useEffect(() => {
+    document.documentElement.setAttribute('data-palette', palette);
+    localStorage.setItem('palette', palette);
+  }, [palette]);
+
+  // Sync sound setting with sound system
+  useEffect(() => {
+    sound.enabled = soundEnabled;
+  }, [soundEnabled]);
+
   const toggleTheme = () => {
     setDarkMode((prev) => !prev);
-    showToast(!darkMode ? 'Switched to Dark Mode' : 'Switched to Light Studio Mode');
+    showToast(!darkMode ? 'Switched to Obsidian Midnight Dark Mode 🌙' : 'Switched to Alabaster Silk Studio ☀️');
   };
 
   const showToast = (msg: string) => {
@@ -60,6 +83,7 @@ export const App: React.FC = () => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         setIsCommandOpen((prev) => !prev);
+        sound.playClick(600, 'sine');
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -67,16 +91,21 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-neo-bg text-neo-text selection:bg-neo-green selection:text-black transition-colors duration-300 overflow-x-hidden">
+    <div className="min-h-screen bg-neo-bg text-neo-text selection:bg-neo-yellow selection:text-black transition-colors duration-400 overflow-x-hidden relative">
+      {/* Interactive Cursor Aura Spotlight */}
+      <InteractiveAura />
+
       {/* 3-Column Split Navigation */}
       <Navbar
         darkMode={darkMode}
         onToggleTheme={toggleTheme}
         onOpenCommand={() => setIsCommandOpen(true)}
+        onOpenCustomizer={() => setIsCustomizerOpen(true)}
+        onTriggerEasterEgg={() => setIsEasterEggOpen(true)}
       />
 
       {/* Main Content */}
-      <main className="space-y-4">
+      <main className="space-y-4 relative z-10">
         <HeroSection
           onCopyEmail={handleCopyEmail}
           onCopyPhone={handleCopyPhone}
@@ -105,6 +134,27 @@ export const App: React.FC = () => {
           onShowToast={showToast}
         />
       </main>
+
+      {/* Aesthetic Studio Modal */}
+      <ThemeCustomizerModal
+        isOpen={isCustomizerOpen}
+        onClose={() => setIsCustomizerOpen(false)}
+        darkMode={darkMode}
+        onToggleTheme={toggleTheme}
+        currentPalette={palette}
+        onSelectPalette={(p) => {
+          setPalette(p);
+          showToast(`Applied ${p.toUpperCase()} luxury palette!`);
+        }}
+        soundEnabled={soundEnabled}
+        onToggleSound={() => setSoundEnabled(!soundEnabled)}
+      />
+
+      {/* Easter Egg Achievement Modal */}
+      <EasterEggBanner
+        isOpen={isEasterEggOpen}
+        onClose={() => setIsEasterEggOpen(false)}
+      />
 
       {/* Global ⌘K Command Palette Modal */}
       <CommandPalette

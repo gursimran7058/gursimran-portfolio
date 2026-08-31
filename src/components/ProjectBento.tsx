@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   TrendingUp,
@@ -7,10 +7,12 @@ import {
   Sparkles,
   HeartHandshake,
   Building2,
-  Users
+  Users,
+  Filter
 } from 'lucide-react';
 import { FEATURED_PROJECTS } from '../data/projects';
 import { Project } from '../types';
+import { sound } from '../utils/audio';
 
 interface ProjectBentoProps {
   onSelectProject: (project: Project) => void;
@@ -21,10 +23,20 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
   onSelectProject,
   onShowToast
 }) => {
+  const [filterCategory, setFilterCategory] = useState<string>('all');
+
+  const filteredProjects = FEATURED_PROJECTS.filter((p) => {
+    if (filterCategory === 'all') return true;
+    if (filterCategory === 'civic' && p.category.toLowerCase().includes('social')) return true;
+    if (filterCategory === 'commercial' && (p.category.toLowerCase().includes('startup') || p.category.toLowerCase().includes('enterprise'))) return true;
+    if (filterCategory === 'education' && p.category.toLowerCase().includes('literacy')) return true;
+    return true;
+  });
+
   return (
     <section id="work" className="py-20 px-3.5 sm:px-6 max-w-6xl mx-auto border-t border-neo-border">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neo-green text-black text-xs font-mono font-extrabold border-1.5 border-black mb-2 shadow-[2px_2px_0px_#111115]">
             <TrendingUp className="w-3.5 h-3.5" />
@@ -39,16 +51,45 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
         </p>
       </div>
 
+      {/* Interactive Category Filter Pills */}
+      <div className="flex flex-wrap items-center gap-2 mb-8 font-mono">
+        <span className="text-xs font-bold text-neo-muted flex items-center gap-1 mr-1">
+          <Filter className="w-3.5 h-3.5" />
+          <span>Filter:</span>
+        </span>
+        {[
+          { id: 'all', label: 'All Ventures' },
+          { id: 'civic', label: '🚑 CivicSOS Tech' },
+          { id: 'commercial', label: '🛍️ Commercial & Retail' },
+          { id: 'education', label: '📚 Financial Literacy' },
+        ].map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => {
+              setFilterCategory(tab.id);
+              sound.playClick(500, 'sine');
+            }}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold neo-btn transition-all ${
+              filterCategory === tab.id
+                ? 'bg-neo-yellow text-black border-2 border-black'
+                : 'bg-neo-card text-neo-text hover:bg-neo-bg'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
       {/* Grid of Projects */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* CARD 1: BookMyEmergency (Span: 8 Cols) */}
-        {FEATURED_PROJECTS[0] && (
+        {filteredProjects.find((p) => p.id === 'bookmyemergency') && (
           <div className="lg:col-span-8 neo-card p-5 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <span className="neo-badge bg-rose-400 text-black">
                   <HeartHandshake className="w-3.5 h-3.5" />
-                  {FEATURED_PROJECTS[0].category}
+                  Social Welfare & SOS Tech
                 </span>
                 <span className="text-xs font-mono font-bold text-emerald-500 bg-black px-2.5 py-0.5 rounded-full border border-emerald-500/40">
                   ● Building Now
@@ -93,8 +134,11 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
               </div>
 
               <button
-                onClick={() => onSelectProject(FEATURED_PROJECTS[0])}
-                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5"
+                onClick={() => {
+                  onSelectProject(FEATURED_PROJECTS[0]);
+                  sound.playSuccess();
+                }}
+                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-green hover:text-black transition-colors"
               >
                 <span>Read Mission Overview</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -104,7 +148,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
         )}
 
         {/* CARD 2: Guldasta (Span: 4 Cols) */}
-        {FEATURED_PROJECTS[1] && (
+        {filteredProjects.find((p) => p.id === 'guldasta') && (
           <div className="lg:col-span-4 neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
@@ -139,7 +183,10 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             <div className="pt-3 border-t-2 border-neo-border flex items-center justify-between">
               <span className="text-xs font-mono font-bold text-neo-muted">Co-Founder (Jan 2026)</span>
               <button
-                onClick={() => onSelectProject(FEATURED_PROJECTS[1])}
+                onClick={() => {
+                  onSelectProject(FEATURED_PROJECTS[1]);
+                  sound.playSuccess();
+                }}
                 className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-yellow hover:text-black transition-all"
               >
                 <ArrowUpRight className="w-4 h-4" />
@@ -149,7 +196,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
         )}
 
         {/* CARD 3: New Era Electronics (Span: 4 Cols) */}
-        {FEATURED_PROJECTS[2] && (
+        {filteredProjects.find((p) => p.id === 'new-era-electronics') && (
           <div className="lg:col-span-4 neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
@@ -183,7 +230,10 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             <div className="pt-3 border-t-2 border-neo-border flex items-center justify-between">
               <span className="text-xs font-mono font-bold text-neo-muted">Managerial Role</span>
               <button
-                onClick={() => onSelectProject(FEATURED_PROJECTS[2])}
+                onClick={() => {
+                  onSelectProject(FEATURED_PROJECTS[2]);
+                  sound.playSuccess();
+                }}
                 className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-blue hover:text-black transition-all"
               >
                 <ArrowUpRight className="w-4 h-4" />
@@ -193,7 +243,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
         )}
 
         {/* CARD 4: Youth Capital Foundation (Span: 8 Cols) */}
-        {FEATURED_PROJECTS[3] && (
+        {filteredProjects.find((p) => p.id === 'youth-capital-foundation') && (
           <div className="lg:col-span-8 neo-card p-5 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -244,8 +294,11 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
               </div>
 
               <button
-                onClick={() => onSelectProject(FEATURED_PROJECTS[3])}
-                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5"
+                onClick={() => {
+                  onSelectProject(FEATURED_PROJECTS[3]);
+                  sound.playSuccess();
+                }}
+                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-purple hover:text-black transition-colors"
               >
                 <span>Read Initiative Story</span>
                 <ArrowRight className="w-3.5 h-3.5" />
