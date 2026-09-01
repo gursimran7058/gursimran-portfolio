@@ -51,8 +51,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const handleAvatarClick = (e: React.MouseEvent) => {
-    e.preventDefault();
     sound.playClick(500 + avatarClicks * 100, 'sine');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const newCount = avatarClicks + 1;
     setAvatarClicks(newCount);
     if (newCount >= 5) {
@@ -98,11 +98,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             </a>
           </div>
 
-          {/* Center Emblem Avatar */}
-          <div
+          {/* Center Emblem Avatar Logo -> Navigates to Home Start (#hero) */}
+          <a
+            href="#hero"
             onClick={handleAvatarClick}
             className="navbar-brand-logo flex items-center gap-2.5 group select-none cursor-pointer"
-            title="Click 5x to Unlock Trophy Achievement!"
+            title="Click to return to home page! (5x unlocks Easter Egg)"
           >
             <div className="relative">
               <img
@@ -133,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 )}
               </span>
             </div>
-          </div>
+          </a>
 
           {/* Right Links & Quick Controls */}
           <div className="navbar-right-controls hidden md:flex items-center gap-3">
