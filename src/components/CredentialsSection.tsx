@@ -165,7 +165,7 @@ export const CredentialsSection: React.FC = () => {
                 <Maximize2 className="w-3.5 h-3.5" />
                 <span>Expand Story</span>
               </div>
-              <span className="absolute top-2.5 left-2.5 neo-badge bg-neo-blue text-white font-extrabold text-[10px] shadow-sm">
+              <span className="absolute top-2.5 left-2.5 neo-badge bg-neo-purple text-white font-extrabold text-[10px] shadow-sm">
                 {item.badge}
               </span>
             </div>
@@ -175,10 +175,10 @@ export const CredentialsSection: React.FC = () => {
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] font-mono font-bold text-neo-muted">
                   <span className="truncate max-w-[130px]">{item.organization}</span>
-                  <span className="text-blue-500 font-extrabold shrink-0 ml-1 text-[10px]">{item.grade}</span>
+                  <span className="text-purple-500 font-extrabold shrink-0 ml-1 text-[10px]">{item.grade}</span>
                 </div>
 
-                <h3 className="text-sm font-black text-neo-text font-display group-hover:text-blue-500 transition-colors leading-snug line-clamp-2">
+                <h3 className="text-sm font-black text-neo-text font-display group-hover:text-purple-500 transition-colors leading-snug line-clamp-2">
                   {item.title}
                 </h3>
 
@@ -191,7 +191,7 @@ export const CredentialsSection: React.FC = () => {
               <div className="space-y-1 pt-2 border-t border-neo-border">
                 {item.highlights.slice(0, 2).map((point, idx) => (
                   <div key={idx} className="text-[11px] font-mono text-neo-text flex items-start gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-blue-500 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3 h-3 text-purple-500 shrink-0 mt-0.5" />
                     <span className="line-clamp-1">{point}</span>
                   </div>
                 ))}
@@ -200,7 +200,7 @@ export const CredentialsSection: React.FC = () => {
               {/* Action Button */}
               <button
                 onClick={() => openDocument(item)}
-                className="mt-2 w-full py-2 rounded-xl bg-neo-bg border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-blue hover:text-white transition-all"
+                className="mt-2 w-full py-2 rounded-xl bg-neo-bg border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-purple hover:text-white transition-all"
               >
                 <Maximize2 className="w-3 h-3" />
                 <span>Inspect Document</span>
@@ -228,7 +228,7 @@ export const CredentialsSection: React.FC = () => {
               {/* Modal Top Bar */}
               <div className="p-3 sm:p-4 border-b-2 border-neo-border flex items-center justify-between bg-neo-bg">
                 <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                  <span className="neo-badge bg-neo-blue text-white text-[11px] font-mono font-black shrink-0">
+                  <span className="neo-badge bg-neo-purple text-white text-[11px] font-mono font-black shrink-0">
                     {activeImage.badge}
                   </span>
                   <div className="truncate">

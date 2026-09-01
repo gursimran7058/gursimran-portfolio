@@ -71,7 +71,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             }}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold neo-btn transition-all ${
               filterCategory === tab.id
-                ? 'bg-neo-blue text-white border-2 border-black'
+                ? 'bg-neo-purple text-white border-2 border-black'
                 : 'bg-neo-card text-neo-text hover:bg-neo-bg'
             }`}
           >
@@ -94,7 +94,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
                     <HeartHandshake className="w-3.5 h-3.5" />
                     Social Welfare & SOS Tech
                   </span>
-                  <span className="text-xs font-mono font-bold text-blue-500 bg-black px-2.5 py-0.5 rounded-full border border-blue-500/40">
+                  <span className="text-xs font-mono font-bold text-purple-500 bg-black px-2.5 py-0.5 rounded-full border border-purple-500/40">
                     ● Building Now
                   </span>
                 </div>
@@ -117,7 +117,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
                     <div className="text-[11px] font-mono text-neo-muted font-bold">Ambulance & Hospitals</div>
                   </div>
                   <div className="space-y-0.5">
-                    <div className="text-base sm:text-lg font-black font-mono text-blue-500">Public Good</div>
+                    <div className="text-base sm:text-lg font-black font-mono text-purple-500">Public Good</div>
                     <div className="text-[11px] font-mono text-neo-muted font-bold">Zero-Fee Welfare</div>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
                     onSelectProject(p);
                     sound.playSuccess();
                   }}
-                  className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-blue hover:text-white transition-colors"
+                  className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-purple hover:text-white transition-colors"
                 >
                   <span>Read Mission Overview</span>
                   <ArrowRight className="w-3.5 h-3.5" />

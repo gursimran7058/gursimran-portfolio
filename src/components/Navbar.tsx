@@ -176,7 +176,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="#contact"
               onClick={() => sound.playClick(700, 'sine')}
-              className="px-4 py-2 rounded-xl bg-neo-blue text-white font-extrabold text-xs neo-btn flex items-center gap-1.5"
+              className="px-4 py-2 rounded-xl bg-neo-orange text-white font-extrabold text-xs neo-btn flex items-center gap-1.5"
             >
               <span>Let's Talk</span>
               <ArrowRight className="w-3.5 h-3.5" />
