@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import {
   ArrowRight,
   GraduationCap,
-  Sparkles,
   Mail,
   Linkedin,
   Phone,
@@ -38,12 +37,123 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-          {/* Left Column: Pitch & Identity (order-2 on mobile, order-1 on desktop) */}
+          {/* Avatar Photo Card & Verified Credentials Card (Renders FIRST on mobile naturally, Column 2 on desktop) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="hero-avatar-credentials-column lg:col-span-5 lg:order-2 space-y-3"
+          >
+            {/* Real Avatar Card */}
+            <div className="hero-avatar-profile-card neo-card p-3.5 sm:p-4 relative overflow-hidden group">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <img
+                  src={IMAGES.avatar}
+                  alt="Gursimran Singh Jodhka"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-neo-border shadow-[2px_2px_0px_var(--border-color)] shrink-0 group-hover:scale-105 transition-transform"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.dataset.triedFallback1) {
+                      target.dataset.triedFallback1 = 'true';
+                      target.src = './assets/gursimran-avatar.png';
+                    } else if (!target.dataset.triedFallback2) {
+                      target.dataset.triedFallback2 = 'true';
+                      target.src = 'assets/gursimran-avatar.png';
+                    } else if (!target.dataset.triedFallback3) {
+                      target.dataset.triedFallback3 = 'true';
+                      target.src = 'https://gursimran7058.github.io/gursimran-portfolio/assets/gursimran-avatar.png';
+                    }
+                  }}
+                />
+                <div className="space-y-0.5 min-w-0">
+                  <div className="text-base sm:text-lg font-black font-display text-neo-text truncate">
+                    Gursimran S. Jodhka
+                  </div>
+                  <div className="text-xs font-mono text-neo-muted font-bold">
+                    Class 11 Commerce • 17 y/o
+                  </div>
+                  <div className="text-[11px] font-mono text-neo-text font-extrabold truncate">
+                    B.C.M. Arya Model Sr. Sec. School
+                  </div>
+                  <div className="inline-block px-2.5 py-0.5 rounded-full bg-neo-accent text-neo-accentText text-[10px] sm:text-[11px] font-extrabold border border-black">
+                    Ludhiana, Punjab 📍
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Academic & Internship Verified Showcase Card */}
+            <div className="hero-credentials-showcase-card neo-card p-4 sm:p-5 space-y-3 sm:space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-extrabold font-mono uppercase tracking-wider text-neo-text flex items-center gap-1.5">
+                  <Trophy className="w-4 h-4 text-neo-text" />
+                  <span>Verified Credentials</span>
+                </span>
+                <span className="text-[11px] font-mono font-bold text-neo-accentText bg-neo-accent px-2 py-0.5 rounded-md">
+                  4 Documents
+                </span>
+              </div>
+
+              {/* 2 Quick Mini Badges */}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
+                  <div className="text-xl sm:text-2xl font-black font-mono text-neo-text">
+                    96.2%
+                  </div>
+                  <div className="text-[10px] font-mono text-neo-muted font-bold">
+                    CBSE Class 10th
+                  </div>
+                  <div className="text-[9px] font-mono text-neo-muted">
+                    Award of Honour
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
+                  <div className="text-xl sm:text-2xl font-black font-mono text-neo-text">
+                    Excellent
+                  </div>
+                  <div className="text-[10px] font-mono text-neo-muted font-bold">
+                    Ludhiana Stock & Capital
+                  </div>
+                  <div className="text-[9px] font-mono text-neo-muted">
+                    Training Certificate
+                  </div>
+                </div>
+              </div>
+
+              {/* Subject Breakdown Quick List */}
+              <div className="p-3 rounded-2xl bg-neo-bg border border-neo-border space-y-1.5 text-xs font-mono">
+                <div className="flex justify-between items-center text-neo-text font-bold">
+                  <span>Intro to Financial Markets:</span>
+                  <span className="text-neo-text font-black">99 / 100 (A1)</span>
+                </div>
+                <div className="flex justify-between items-center text-neo-text font-bold">
+                  <span>Mathematics Standard:</span>
+                  <span className="text-neo-text font-black">97 / 100 (A1)</span>
+                </div>
+                <div className="flex justify-between items-center text-neo-text font-bold">
+                  <span>Punjabi & English:</span>
+                  <span className="text-neo-text font-black">96 & 95 (A1)</span>
+                </div>
+              </div>
+
+              <a
+                href="#credentials"
+                onClick={() => sound.playSuccess()}
+                className="w-full py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-accent hover:text-neo-accentText transition-all"
+              >
+                <span>View Trophy & Certificates</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Left Column: Pitch & Identity (Renders SECOND on mobile naturally, Column 1 on desktop) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="hero-pitch-column lg:col-span-7 order-2 lg:order-1 flex flex-col space-y-4"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="hero-pitch-column lg:col-span-7 lg:order-1 flex flex-col space-y-4"
           >
             {/* Structured Diagonal Sticker Badge Flow */}
             <div className="hero-sticker-badge-group flex flex-wrap items-center gap-2 font-mono">
@@ -178,117 +288,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <Phone className="w-3.5 h-3.5 text-neo-text" />
                 <span className="text-[11px] sm:text-xs text-neo-text">+91 7508002768</span>
               </button>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Real Photo Card & Verified Academic Showcase Card (order-1 on mobile, order-2 on desktop) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.15 }}
-            className="hero-avatar-credentials-column lg:col-span-5 order-1 lg:order-2 space-y-3"
-          >
-            {/* Real Avatar Card */}
-            <div className="hero-avatar-profile-card neo-card p-3.5 sm:p-4 relative overflow-hidden group">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <img
-                  src={IMAGES.avatar}
-                  alt="Gursimran Singh Jodhka"
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-neo-border shadow-[2px_2px_0px_var(--border-color)] shrink-0 group-hover:scale-105 transition-transform"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    if (!target.dataset.triedFallback1) {
-                      target.dataset.triedFallback1 = 'true';
-                      target.src = './assets/gursimran-avatar.png';
-                    } else if (!target.dataset.triedFallback2) {
-                      target.dataset.triedFallback2 = 'true';
-                      target.src = 'assets/gursimran-avatar.png';
-                    } else if (!target.dataset.triedFallback3) {
-                      target.dataset.triedFallback3 = 'true';
-                      target.src = 'https://gursimran7058.github.io/gursimran-portfolio/assets/gursimran-avatar.png';
-                    }
-                  }}
-                />
-                <div className="space-y-0.5 min-w-0">
-                  <div className="text-base sm:text-lg font-black font-display text-neo-text truncate">
-                    Gursimran S. Jodhka
-                  </div>
-                  <div className="text-xs font-mono text-neo-muted font-bold">
-                    Class 11 Commerce • 17 y/o
-                  </div>
-                  <div className="text-[11px] font-mono text-neo-text font-extrabold truncate">
-                    B.C.M. Arya Model Sr. Sec. School
-                  </div>
-                  <div className="inline-block px-2.5 py-0.5 rounded-full bg-neo-accent text-neo-accentText text-[10px] sm:text-[11px] font-extrabold border border-black">
-                    Ludhiana, Punjab 📍
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Academic & Internship Verified Showcase Card */}
-            <div className="hero-credentials-showcase-card neo-card p-4 sm:p-5 space-y-3 sm:space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-extrabold font-mono uppercase tracking-wider text-neo-text flex items-center gap-1.5">
-                  <Trophy className="w-4 h-4 text-neo-text" />
-                  <span>Verified Credentials</span>
-                </span>
-                <span className="text-[11px] font-mono font-bold text-neo-accentText bg-neo-accent px-2 py-0.5 rounded-md">
-                  4 Documents
-                </span>
-              </div>
-
-              {/* 2 Quick Mini Badges */}
-              <div className="grid grid-cols-2 gap-2">
-                <div className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
-                  <div className="text-xl sm:text-2xl font-black font-mono text-neo-text">
-                    96.2%
-                  </div>
-                  <div className="text-[10px] font-mono text-neo-muted font-bold">
-                    CBSE Class 10th
-                  </div>
-                  <div className="text-[9px] font-mono text-neo-muted">
-                    Award of Honour
-                  </div>
-                </div>
-
-                <div className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
-                  <div className="text-xl sm:text-2xl font-black font-mono text-neo-text">
-                    Excellent
-                  </div>
-                  <div className="text-[10px] font-mono text-neo-muted font-bold">
-                    Ludhiana Stock & Capital
-                  </div>
-                  <div className="text-[9px] font-mono text-neo-muted">
-                    Training Certificate
-                  </div>
-                </div>
-              </div>
-
-              {/* Subject Breakdown Quick List */}
-              <div className="p-3 rounded-2xl bg-neo-bg border border-neo-border space-y-1.5 text-xs font-mono">
-                <div className="flex justify-between items-center text-neo-text font-bold">
-                  <span>Intro to Financial Markets:</span>
-                  <span className="text-neo-text font-black">99 / 100 (A1)</span>
-                </div>
-                <div className="flex justify-between items-center text-neo-text font-bold">
-                  <span>Mathematics Standard:</span>
-                  <span className="text-neo-text font-black">97 / 100 (A1)</span>
-                </div>
-                <div className="flex justify-between items-center text-neo-text font-bold">
-                  <span>Punjabi & English:</span>
-                  <span className="text-neo-text font-black">96 & 95 (A1)</span>
-                </div>
-              </div>
-
-              <a
-                href="#credentials"
-                onClick={() => sound.playSuccess()}
-                className="w-full py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-accent hover:text-neo-accentText transition-all"
-              >
-                <span>View Trophy & Certificates</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
             </div>
           </motion.div>
         </div>
