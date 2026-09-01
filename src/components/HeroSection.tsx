@@ -61,13 +61,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <GraduationCap className="w-3.5 h-3.5" />
                 <span>B.C.M. Arya (96.2%)</span>
               </span>
-              <span
-                onClick={() => sound.playClick(700, 'triangle')}
-                className="hero-sticker-tag neo-sticker cursor-pointer -rotate-1 hover:rotate-0 transition-transform"
-              >
-                <Trophy className="w-3.5 h-3.5" />
-                <span>Capital Markets Intern</span>
-              </span>
             </div>
 
             {/* Display Headline */}
