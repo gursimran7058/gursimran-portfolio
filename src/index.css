@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -46,41 +46,40 @@ html.dark {
   --aura-color: rgba(56, 189, 248, 0.18);
 }
 
-/* TYPOGRAPHY PRESETS */
+/* TYPOGRAPHY PRESETS (Bodoni Serif + Lato Sans-Serif) */
 html[data-typography="bold-asymmetric"] {
-  --font-heading: 'Syne', 'Outfit', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Bodoni Moda', 'Libre Bodoni', Georgia, serif;
+  --font-body: 'Lato', sans-serif;
 }
 html[data-typography="bold-asymmetric"] .font-display {
   font-family: var(--font-heading);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   font-weight: 800;
 }
 
 html[data-typography="minimalist"] {
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Lato', sans-serif;
+  --font-body: 'Lato', sans-serif;
 }
 html[data-typography="minimalist"] .font-display {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   letter-spacing: -0.01em;
   font-weight: 700;
 }
 
 html[data-typography="cyber-mono"] {
-  --font-heading: 'Space Grotesk', 'JetBrains Mono', monospace;
-  --font-body: 'Space Grotesk', sans-serif;
+  --font-heading: 'Bodoni Moda', Georgia, serif;
+  --font-body: 'Lato', sans-serif;
 }
 html[data-typography="cyber-mono"] .font-display {
-  font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: -0.04em;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-family: 'Bodoni Moda', Georgia, serif;
+  letter-spacing: -0.02em;
+  font-weight: 800;
 }
 
 @layer base {
   body {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--bg-primary);
     background-image: 
       radial-gradient(circle at 20% 20%, rgba(2, 132, 199, 0.12) 0%, transparent 45%),
@@ -95,6 +94,10 @@ html[data-typography="cyber-mono"] .font-display {
     background-image: 
       radial-gradient(circle at 20% 15%, rgba(192, 132, 252, 0.16) 0%, transparent 50%),
       radial-gradient(circle at 80% 75%, rgba(56, 189, 248, 0.14) 0%, transparent 50%);
+  }
+
+  .font-display {
+    font-family: 'Bodoni Moda', 'Libre Bodoni', Georgia, serif;
   }
 
   /* Custom Clean Scrollbar */

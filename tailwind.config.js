@@ -21,11 +21,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Outfit"', '"Syne"', '"Space Grotesk"', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
-        syne: ['"Syne"', 'sans-serif'],
-        space: ['"Space Grotesk"', 'sans-serif']
+        sans: ['"Lato"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Bodoni Moda"', '"Libre Bodoni"', 'Georgia', 'serif'],
+        serif: ['"Bodoni Moda"', '"Libre Bodoni"', 'Georgia', 'serif'],
+        mono: ['"JetBrains Mono"', 'monospace']
       },
       boxShadow: {
         'neo': '4px 4px 0px var(--border-color)',
