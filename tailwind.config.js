@@ -14,15 +14,15 @@ export default {
           text: 'var(--text-primary)',
           muted: 'var(--text-secondary)',
           border: 'var(--border-color)',
-          navy: '#0B132B',
-          beige: '#F5F2EB',
+          accent: 'var(--accent-primary)',
+          accentText: 'var(--accent-text)',
           purple: 'var(--brand-purple)',
           blue: 'var(--brand-blue)',
-          orange: 'var(--brand-orange)',
-          green: 'var(--brand-blue)',
-          red: 'var(--brand-orange)',
-          yellow: 'var(--brand-orange)',
-          pink: 'var(--brand-purple)'
+          orange: 'var(--accent-primary)',
+          green: 'var(--accent-primary)',
+          red: 'var(--accent-primary)',
+          yellow: 'var(--accent-primary)',
+          pink: 'var(--accent-primary)'
         }
       },
       fontFamily: {

@@ -11,9 +11,7 @@ import {
   Zap,
   Building2,
   HeartHandshake,
-  CheckCircle2,
-  Trophy,
-  ExternalLink
+  Trophy
 } from 'lucide-react';
 import IMAGES from '../assets/images';
 import { sound } from '../utils/audio';
@@ -36,8 +34,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     >
       {/* Crisp Floating Circles */}
       <span className="bg-circle bg-circle-purple w-8 h-8 top-16 left-4 sm:left-12" />
-      <span className="bg-circle bg-circle-orange w-10 h-10 top-20 right-4 sm:right-16" />
-      <span className="bg-circle bg-circle-purple w-7 h-7 bottom-8 left-6" />
+      <span className="bg-circle bg-circle-blue w-10 h-10 top-20 right-4 sm:right-16" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
@@ -52,21 +49,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="hero-sticker-badge-group flex flex-wrap items-center gap-2 font-mono">
               <span
                 onClick={() => sound.playClick(600, 'triangle')}
-                className="hero-sticker-tag neo-sticker bg-neo-purple text-white text-[11px] cursor-pointer -rotate-2 hover:rotate-0 transition-transform"
+                className="hero-sticker-tag neo-sticker cursor-pointer -rotate-2 hover:rotate-0 transition-transform"
               >
-                <Zap className="w-3.5 h-3.5 fill-white" />
+                <Zap className="w-3.5 h-3.5 fill-current" />
                 <span>17 y/o Founder & Builder</span>
               </span>
               <span
                 onClick={() => sound.playClick(650, 'triangle')}
-                className="hero-sticker-tag neo-sticker bg-neo-orange text-white text-[11px] cursor-pointer rotate-1 hover:rotate-0 transition-transform"
+                className="hero-sticker-tag neo-sticker cursor-pointer rotate-1 hover:rotate-0 transition-transform"
               >
                 <GraduationCap className="w-3.5 h-3.5" />
                 <span>B.C.M. Arya (96.2%)</span>
               </span>
               <span
                 onClick={() => sound.playClick(700, 'triangle')}
-                className="hero-sticker-tag neo-sticker bg-neo-purple text-white text-[11px] cursor-pointer -rotate-1 hover:rotate-0 transition-transform"
+                className="hero-sticker-tag neo-sticker cursor-pointer -rotate-1 hover:rotate-0 transition-transform"
               >
                 <Trophy className="w-3.5 h-3.5" />
                 <span>Capital Markets Intern</span>
@@ -76,7 +73,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Display Headline */}
             <h1 className="hero-headline-title text-2.5xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-neo-text font-display">
               Building civic tech, managing operations & leading{' '}
-              <span className="hero-headline-highlight bg-neo-orange text-white px-2.5 py-0.5 rounded-xl inline-block my-0.5 border-2 border-black shadow-[3px_3px_0px_#000] -rotate-1 hover:rotate-0 transition-transform">
+              <span className="hero-headline-highlight bg-neo-accent text-neo-accentText px-2.5 py-0.5 rounded-xl inline-block my-0.5 border-2 border-black shadow-[3px_3px_0px_#000] -rotate-1 hover:rotate-0 transition-transform">
                 commercial ventures.
               </span>
             </h1>
@@ -94,28 +91,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono font-bold">
                 <div
                   onClick={() => sound.playClick(500, 'sine')}
-                  className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-purple cursor-pointer transition-all"
+                  className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-accent cursor-pointer transition-all"
                 >
                   <Award className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">96.2% CBSE (99 Fin Markets, 97 Maths)</span>
                 </div>
                 <div
                   onClick={() => sound.playClick(550, 'sine')}
-                  className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-orange cursor-pointer transition-all"
+                  className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-accent cursor-pointer transition-all"
                 >
                   <Trophy className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">Ludhiana Stock Exchange Training</span>
                 </div>
                 <div
                   onClick={() => sound.playClick(600, 'sine')}
-                  className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-orange cursor-pointer transition-all"
+                  className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-accent cursor-pointer transition-all"
                 >
                   <HeartHandshake className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">BookMyEmergency Social Welfare Tech</span>
                 </div>
                 <div
                   onClick={() => sound.playClick(650, 'sine')}
-                  className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-purple cursor-pointer transition-all"
+                  className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-accent cursor-pointer transition-all"
                 >
                   <Building2 className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">Manager @ New Era Electronics</span>
@@ -137,9 +134,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <a
                 href="#credentials"
                 onClick={() => sound.playSuccess()}
-                className="hero-btn-certificates w-full sm:w-auto px-5 py-3 rounded-2xl bg-neo-orange text-white font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
+                className="hero-btn-certificates w-full sm:w-auto px-5 py-3 rounded-2xl btn-accent font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
               >
-                <Trophy className="w-4 h-4 text-white" />
+                <Trophy className="w-4 h-4 text-current" />
                 <span>View Certificates & 96.2% Trophy</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
@@ -147,7 +144,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <a
                 href="#work"
                 onClick={() => sound.playClick(500, 'sine')}
-                className="hero-btn-ventures w-full sm:w-auto px-5 py-3 rounded-2xl bg-neo-purple text-white font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
+                className="hero-btn-ventures w-full sm:w-auto px-5 py-3 rounded-2xl btn-accent font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
               >
                 <span>Explore Ventures</span>
               </a>
@@ -229,7 +226,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="text-[11px] font-mono text-neo-text font-extrabold truncate">
                     B.C.M. Arya Model Sr. Sec. School
                   </div>
-                  <div className="inline-block px-2.5 py-0.5 rounded-full bg-neo-orange text-white text-[10px] sm:text-[11px] font-extrabold border border-black">
+                  <div className="inline-block px-2.5 py-0.5 rounded-full bg-neo-accent text-neo-accentText text-[10px] sm:text-[11px] font-extrabold border border-black">
                     Ludhiana, Punjab 📍
                   </div>
                 </div>
@@ -243,7 +240,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <Trophy className="w-4 h-4 text-neo-text" />
                   <span>Verified Credentials</span>
                 </span>
-                <span className="text-[11px] font-mono font-bold text-white bg-neo-purple px-2 py-0.5 rounded-md">
+                <span className="text-[11px] font-mono font-bold text-neo-accentText bg-neo-accent px-2 py-0.5 rounded-md">
                   4 Documents
                 </span>
               </div>
@@ -294,7 +291,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <a
                 href="#credentials"
                 onClick={() => sound.playSuccess()}
-                className="w-full py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-orange hover:text-white transition-all"
+                className="w-full py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-accent hover:text-neo-accentText transition-all"
               >
                 <span>View Trophy & Certificates</span>
                 <ArrowRight className="w-3.5 h-3.5" />

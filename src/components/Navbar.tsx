@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }
                 }}
               />
-              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-neo-orange rounded-full border-1.5 border-neo-border animate-pulse" />
+              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-neo-accent rounded-full border-1.5 border-neo-border animate-pulse" />
             </div>
             <div className="flex flex-col text-left">
               <span className="text-xs sm:text-sm font-extrabold tracking-tight font-display text-neo-text flex items-center gap-1">
@@ -166,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
               {darkMode ? (
-                <Sun className="w-4 h-4 text-white" />
+                <Sun className="w-4 h-4 text-neo-accent" />
               ) : (
                 <Moon className="w-4 h-4 text-zinc-800" />
               )}
@@ -176,7 +176,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="#contact"
               onClick={() => sound.playClick(700, 'sine')}
-              className="navbar-cta-button px-4 py-2 rounded-xl bg-neo-orange text-white font-extrabold text-xs neo-btn flex items-center gap-1.5"
+              className="navbar-cta-button px-4 py-2 rounded-xl btn-accent font-extrabold text-xs neo-btn flex items-center gap-1.5"
             >
               <span>Let's Talk</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -193,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="Toggle theme"
               className="p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text"
             >
-              {darkMode ? <Sun className="w-4 h-4 text-white" /> : <Moon className="w-4 h-4" />}
+              {darkMode ? <Sun className="w-4 h-4 text-neo-accent" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
               onClick={() => {
@@ -230,7 +230,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setMobileMenuOpen(false);
                   sound.playClick(400, 'sine');
                 }}
-                className="text-sm font-extrabold uppercase py-1.5 px-2 rounded-lg text-neo-text hover:bg-neo-orange hover:text-white transition-colors"
+                className="text-sm font-extrabold uppercase py-1.5 px-2 rounded-lg text-neo-text hover:bg-neo-accent hover:text-neo-accentText transition-colors"
               >
                 {link.label}
               </a>

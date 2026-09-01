@@ -3,60 +3,60 @@
 @tailwind utilities;
 
 :root {
-  /* LIGHT MODE: Vibrant Sky Ocean Blue Canvas */
+  /* LIGHT MODE: Sky Ocean Blue Canvas + PURPLE Accents/Buttons/Stickers */
   --bg-primary: #90d5ff;       /* Sky Ocean Blue Canvas */
-  --bg-card: #FFFFFF;          /* Pure white card surface */
-  --text-primary: #0F172A;     /* High-contrast deep slate ink */
-  --text-secondary: #334155;   /* Slate text */
-  --border-color: #1E293B;     /* Crisp 2px high-contrast border */
-  
-  /* STRICT COLOR SCHEME: PURPLE, BLUE, ORANGE ONLY */
-  --brand-purple: #7C3AED;     /* Royal Amethyst Purple */
-  --brand-blue: #0284C7;       /* Rich Ocean Blue */
-  --brand-orange: #EA580C;     /* Sunset Amber Orange */
+  --bg-card: #FFFFFF;          /* Pure White Card Surface */
+  --text-primary: #0F172A;     /* Slate Ink Text */
+  --text-secondary: #334155;   /* Slate Muted Text */
+  --border-color: #1E293B;     /* Crisp 2px Border */
 
-  /* Utility aliases strictly mapping to Purple, Blue, Orange */
-  --brand-green: #0284C7;      /* Ocean Blue */
-  --brand-red: #EA580C;        /* Sunset Orange */
-  --brand-yellow: #EA580C;     /* Sunset Orange */
-  --brand-pink: #7C3AED;       /* Amethyst Purple */
+  /* Light Mode Accent: PURPLE for all buttons, badges, highlights, stickers */
+  --accent-primary: #7C3AED;   /* Royal Amethyst Purple */
+  --accent-text: #FFFFFF;      /* White Text on Accent Button */
+
+  --brand-purple: #7C3AED;
+  --brand-blue: #0284C7;
+  --brand-orange: #7C3AED;
+  --brand-green: #7C3AED;
+  --brand-red: #7C3AED;
+  --brand-yellow: #7C3AED;
+  --brand-pink: #7C3AED;
   --brand-beige: #E0F2FE;
-  
+
   --shadow-offset: 5px 5px 0px #1E293B;
   --shadow-offset-hover: 8px 8px 0px #1E293B;
-  --card-glow: rgba(2, 132, 199, 0.18);
-  --aura-color: rgba(124, 58, 237, 0.14);
+  --card-glow: rgba(124, 58, 237, 0.20);
+  --aura-color: rgba(124, 58, 237, 0.16);
 }
 
 html.dark {
-  /* DARK MODE: Royal Purple Midnight Space */
-  --bg-primary: #1E0A3C;       /* Rich Royal Purple Space */
+  /* DARK MODE: Royal Purple Canvas + BLUE Accents/Buttons/Stickers */
+  --bg-primary: #1E0A3C;       /* Royal Purple Midnight Background */
   --bg-card: #2B1154;          /* Royal Purple Card Surface */
-  --text-primary: #F8FAFC;     /* Pearl white text */
-  --text-secondary: #CBD5E1;   /* Silvery slate muted text */
-  --border-color: #4C1D95;     /* Deep Royal Violet Border */
-  
-  /* STRICT DARK MODE ACCENTS: PURPLE, BLUE, ORANGE */
-  --brand-purple: #C084FC;     /* Radiant Cyber Violet */
-  --brand-blue: #38BDF8;       /* Electric Azure Blue */
-  --brand-orange: #FB923C;     /* Vivid Sunset Orange */
+  --text-primary: #F8FAFC;     /* Pearl White Text */
+  --text-secondary: #CBD5E1;   /* Silvery Slate Muted Text */
+  --border-color: #4C1D95;     /* Royal Violet Border */
 
-  /* Utility aliases strictly mapping to Purple, Blue, Orange */
-  --brand-green: #38BDF8;      /* Electric Azure Blue */
-  --brand-red: #FB923C;        /* Vivid Sunset Orange */
-  --brand-yellow: #FB923C;     /* Vivid Sunset Orange */
-  --brand-pink: #C084FC;       /* Radiant Cyber Violet */
+  /* Dark Mode Accent: BLUE for all buttons, badges, highlights, stickers */
+  --accent-primary: #38BDF8;   /* Electric Azure Blue */
+  --accent-text: #0F172A;      /* Slate Ink Text on Blue Button */
+
+  --brand-purple: #C084FC;
+  --brand-blue: #38BDF8;
+  --brand-orange: #38BDF8;
+  --brand-green: #38BDF8;
+  --brand-red: #38BDF8;
+  --brand-yellow: #38BDF8;
+  --brand-pink: #38BDF8;
   --brand-beige: #2E1065;
-  
+
   --shadow-offset: 5px 5px 0px #0D031A;
   --shadow-offset-hover: 8px 8px 0px #0D031A;
-  --card-glow: rgba(192, 132, 252, 0.25);
-  --aura-color: rgba(192, 132, 252, 0.16);
+  --card-glow: rgba(56, 189, 248, 0.25);
+  --aura-color: rgba(56, 189, 248, 0.18);
 }
 
-/* TYPOGRAPHY PRESETS (DYNAMIC UI/UX ACCENTS) */
-
-/* Mode 1: Bold Asymmetric (High-Attention Outfit / Syne Display) */
+/* TYPOGRAPHY PRESETS */
 html[data-typography="bold-asymmetric"] {
   --font-heading: 'Syne', 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -67,7 +67,6 @@ html[data-typography="bold-asymmetric"] .font-display {
   font-weight: 800;
 }
 
-/* Mode 2: Minimalist Clean (Sleek Modern Studio Vibe) */
 html[data-typography="minimalist"] {
   --font-heading: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -78,7 +77,6 @@ html[data-typography="minimalist"] .font-display {
   font-weight: 700;
 }
 
-/* Mode 3: Cyber Mono / Brutalist Code Vibe */
 html[data-typography="cyber-mono"] {
   --font-heading: 'Space Grotesk', 'JetBrains Mono', monospace;
   --font-body: 'Space Grotesk', sans-serif;
@@ -94,7 +92,7 @@ html[data-typography="cyber-mono"] .font-display {
   body {
     background-color: var(--bg-primary);
     background-image: 
-      radial-gradient(circle at 20% 20%, rgba(2, 132, 199, 0.15) 0%, transparent 45%),
+      radial-gradient(circle at 20% 20%, rgba(2, 132, 199, 0.12) 0%, transparent 45%),
       radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.12) 0%, transparent 45%);
     color: var(--text-primary);
     transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -104,11 +102,11 @@ html[data-typography="cyber-mono"] .font-display {
 
   .dark body {
     background-image: 
-      radial-gradient(circle at 20% 15%, rgba(192, 132, 252, 0.18) 0%, transparent 50%),
+      radial-gradient(circle at 20% 15%, rgba(192, 132, 252, 0.16) 0%, transparent 50%),
       radial-gradient(circle at 80% 75%, rgba(56, 189, 248, 0.14) 0%, transparent 50%);
   }
 
-  /* Custom Clean Luxury Scrollbar */
+  /* Custom Clean Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -142,19 +140,7 @@ html[data-typography="cyber-mono"] .font-display {
     box-shadow: var(--shadow-offset-hover), 0 15px 35px -10px var(--card-glow);
   }
 
-  /* Glassmorphism Card Variation */
-  .neo-glass {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  .dark .neo-glass {
-    background: rgba(43, 17, 84, 0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-
-  /* Neo-Brutalist Buttons */
+  /* Neo-Brutalist Buttons - Accent Color (Purple in Light, Blue in Dark) */
   .neo-btn {
     border: 2px solid var(--border-color);
     box-shadow: 3.5px 3.5px 0px var(--border-color);
@@ -173,6 +159,34 @@ html[data-typography="cyber-mono"] .font-display {
     box-shadow: 1px 1px 0px var(--border-color);
   }
 
+  /* Dynamic Accent Button Utility */
+  .btn-accent {
+    background-color: var(--accent-primary);
+    color: var(--accent-text);
+  }
+
+  /* Dynamic Accent Sticker Utility */
+  .neo-sticker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    box-shadow: 3.5px 3.5px 0px var(--border-color);
+    background-color: var(--accent-primary);
+    color: var(--accent-text);
+    transform: rotate(-1.5deg);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .neo-sticker:hover {
+    transform: rotate(0deg) scale(1.05);
+  }
+
   /* Pill Badges */
   .neo-badge {
     display: inline-flex;
@@ -186,6 +200,8 @@ html[data-typography="cyber-mono"] .font-display {
     border-radius: 9999px;
     border: 2px solid var(--border-color);
     box-shadow: 3px 3px 0px var(--border-color);
+    background-color: var(--accent-primary);
+    color: var(--accent-text);
   }
 
   /* Background Floating Circles */
@@ -210,74 +226,6 @@ html[data-typography="cyber-mono"] .font-display {
 
   .bg-circle-blue {
     background-color: var(--brand-blue);
-  }
-
-  .bg-circle-orange {
-    background-color: var(--brand-orange);
-  }
-
-  .bg-circle-green {
-    background-color: var(--brand-blue);
-  }
-
-  .bg-circle-yellow {
-    background-color: var(--brand-orange);
-  }
-
-  /* Neobrutalist Sticker Badge */
-  .neo-sticker {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 0.35rem 0.85rem;
-    border-radius: 12px;
-    border: 2px solid var(--border-color);
-    box-shadow: 3.5px 3.5px 0px var(--border-color);
-    transform: rotate(-1.5deg);
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .neo-sticker:hover {
-    transform: rotate(0deg) scale(1.05);
-  }
-
-  /* Grid Overlay Background lines */
-  .neo-grid-bg {
-    background-size: 32px 32px;
-    background-image: 
-      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  }
-  .dark .neo-grid-bg {
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  }
-
-  /* Luxury Shimmer Effect */
-  .shimmer-text {
-    background: linear-gradient(
-      90deg,
-      var(--text-primary) 0%,
-      var(--brand-orange) 40%,
-      #FB923C 50%,
-      var(--brand-orange) 60%,
-      var(--text-primary) 100%
-    );
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shine 3.5s linear infinite;
-  }
-
-  @keyframes shine {
-    to {
-      background-position: 200% center;
-    }
   }
 
   /* Mobile responsiveness polish */

@@ -104,8 +104,8 @@ export const CredentialsSection: React.FC = () => {
       {/* Section Header */}
       <div className="credentials-header-container flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <div className="credentials-header-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neo-orange text-white text-xs font-mono font-extrabold border-1.5 border-black mb-2 shadow-[2px_2px_0px_#111115]">
-            <Trophy className="w-3.5 h-3.5" />
+          <div className="credentials-header-badge neo-badge mb-2">
+            <Trophy className="w-3.5 h-3.5 text-current" />
             <span>VERIFIED ACADEMIC & PROFESSIONAL MERIT</span>
           </div>
           <h2 className="credentials-headline-title text-3xl sm:text-4xl font-black text-neo-text font-display">
@@ -136,7 +136,7 @@ export const CredentialsSection: React.FC = () => {
                 <Maximize2 className="w-3.5 h-3.5" />
                 <span>Expand Story</span>
               </div>
-              <span className="absolute top-2.5 left-2.5 neo-badge bg-neo-purple text-white font-extrabold text-[10px] shadow-sm">
+              <span className="absolute top-2.5 left-2.5 neo-badge font-extrabold text-[10px] shadow-sm">
                 {item.badge}
               </span>
             </div>
@@ -171,7 +171,7 @@ export const CredentialsSection: React.FC = () => {
               {/* Action Button */}
               <button
                 onClick={() => openDocument(item)}
-                className="credentials-inspect-btn mt-2 w-full py-2 rounded-xl bg-neo-bg border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-purple hover:text-white transition-all"
+                className="credentials-inspect-btn mt-2 w-full py-2 rounded-xl bg-neo-bg border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-accent hover:text-neo-accentText transition-all"
               >
                 <Maximize2 className="w-3 h-3" />
                 <span>Inspect Document</span>
@@ -192,7 +192,7 @@ export const CredentialsSection: React.FC = () => {
             {/* Modal Top Bar */}
             <div className="p-3 sm:p-4 border-b-2 border-neo-border flex items-center justify-between bg-neo-bg">
               <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                <span className="neo-badge bg-neo-purple text-white text-[11px] font-mono font-black shrink-0">
+                <span className="neo-badge text-[11px] font-mono font-black shrink-0">
                   {activeImage.badge}
                 </span>
                 <div className="truncate">
@@ -206,7 +206,7 @@ export const CredentialsSection: React.FC = () => {
               </div>
               <button
                 onClick={() => setActiveImage(null)}
-                className="p-1.5 sm:p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text hover:bg-neo-orange hover:text-white transition-colors shrink-0 ml-2"
+                className="p-1.5 sm:p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text hover:bg-neo-accent hover:text-neo-accentText transition-colors shrink-0 ml-2"
               >
                 <X className="w-5 h-5" />
               </button>

@@ -38,8 +38,8 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
       {/* Section Header */}
       <div className="projects-header-container flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
-          <div className="projects-header-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neo-purple text-white text-xs font-mono font-extrabold border-1.5 border-black mb-2 shadow-[2px_2px_0px_#111115]">
-            <TrendingUp className="w-3.5 h-3.5" />
+          <div className="projects-header-badge neo-badge mb-2">
+            <TrendingUp className="w-3.5 h-3.5 text-current" />
             <span>VENTURES, IMPACT & OPERATIONS</span>
           </div>
           <h2 className="projects-headline-title text-3xl sm:text-5xl font-black text-neo-text font-display">
@@ -71,7 +71,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             }}
             className={`projects-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold neo-btn transition-all ${
               filterCategory === tab.id
-                ? 'bg-neo-orange text-white border-2 border-black'
+                ? 'bg-neo-accent text-neo-accentText border-2 border-black'
                 : 'bg-neo-card text-neo-text hover:bg-neo-bg'
             }`}
           >
@@ -90,8 +90,8 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             <div className="project-card-bookmyemergency lg:col-span-8 neo-card p-5 sm:p-8 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="neo-badge bg-neo-orange text-white">
-                    <HeartHandshake className="w-3.5 h-3.5" />
+                  <span className="neo-badge">
+                    <HeartHandshake className="w-3.5 h-3.5 text-current" />
                     Social Welfare & SOS Tech
                   </span>
                   <span className="text-xs font-mono font-bold text-neo-text bg-black px-2.5 py-0.5 rounded-full border border-neo-border">
@@ -141,7 +141,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
                     onSelectProject(p);
                     sound.playSuccess();
                   }}
-                  className="project-mission-overview-btn w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-purple hover:text-white transition-colors"
+                  className="project-mission-overview-btn w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-accent hover:text-neo-accentText transition-colors"
                 >
                   <span>Read Mission Overview</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -159,8 +159,8 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             <div className="project-card-guldasta lg:col-span-4 neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="neo-badge bg-neo-purple text-white">
-                    <Sparkles className="w-3.5 h-3.5" />
+                  <span className="neo-badge">
+                    <Sparkles className="w-3.5 h-3.5 text-current" />
                     {p.category}
                   </span>
                   <span className="text-xs font-mono font-bold text-neo-muted">
@@ -194,7 +194,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
                     onSelectProject(p);
                     sound.playSuccess();
                   }}
-                  className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-orange hover:text-white transition-all"
+                  className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-accent hover:text-neo-accentText transition-all"
                 >
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
@@ -211,8 +211,8 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             <div className="project-card-newera lg:col-span-4 neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="neo-badge bg-neo-orange text-white">
-                    <Building2 className="w-3.5 h-3.5" />
+                  <span className="neo-badge">
+                    <Building2 className="w-3.5 h-3.5 text-current" />
                     {p.category}
                   </span>
                   <span className="text-xs font-mono font-bold text-neo-muted">
@@ -245,7 +245,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
                     onSelectProject(p);
                     sound.playSuccess();
                   }}
-                  className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-orange hover:text-white transition-all"
+                  className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-accent hover:text-neo-accentText transition-all"
                 >
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
@@ -262,8 +262,8 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             <div className="project-card-youthcapital lg:col-span-8 neo-card p-5 sm:p-8 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="neo-badge bg-neo-purple text-white">
-                    <Users className="w-3.5 h-3.5" />
+                  <span className="neo-badge">
+                    <Users className="w-3.5 h-3.5 text-current" />
                     {p.category}
                   </span>
                   <span className="text-xs font-mono font-bold text-neo-muted">
@@ -313,7 +313,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
                     onSelectProject(p);
                     sound.playSuccess();
                   }}
-                  className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-purple hover:text-white transition-colors"
+                  className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-accent hover:text-neo-accentText transition-colors"
                 >
                   <span>Read Initiative Story</span>
                   <ArrowRight className="w-3.5 h-3.5" />
