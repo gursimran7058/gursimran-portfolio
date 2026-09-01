@@ -174,9 +174,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Display Headline */}
-            <h1 className="hero-headline-title text-2.5xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.3] sm:leading-[1.25] text-neo-text font-display">
+            <h1 className="hero-headline-title text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.25] sm:leading-[1.2] text-neo-text font-display">
               Building civic tech, managing operations & leading{' '}
-              <span className="hero-headline-highlight bg-purple-600 dark:bg-sky-500 text-white px-3 py-1 rounded-xl inline-block mt-2.5 mb-1 border-2 border-black dark:border-white shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#fff] -rotate-1 hover:rotate-0 transition-transform font-black">
+              <span className="hero-headline-highlight bg-purple-600 dark:bg-sky-500 text-white px-3 py-1 rounded-xl inline-block mt-2 mb-1 border-2 border-black dark:border-white shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#fff] -rotate-1 hover:rotate-0 transition-transform font-black">
                 commercial ventures.
               </span>
             </h1>
