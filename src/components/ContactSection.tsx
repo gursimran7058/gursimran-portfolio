@@ -3,13 +3,10 @@ import {
   Mail,
   Phone,
   Linkedin,
-  Copy,
   Check,
   Send,
-  MapPin,
   Sparkles,
-  ArrowUpRight,
-  GraduationCap
+  ArrowUpRight
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 
@@ -69,7 +66,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           {/* Left Side: Pitch & Direct Contact Channels */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
-              <span className="neo-badge bg-neo-green text-black">
+              <span className="neo-badge">
                 LET'S TALK STARTUPS & VENTURES
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-neo-text font-display leading-tight">
@@ -87,20 +84,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   onCopyEmail();
                   sound.playSuccess();
                 }}
-                className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between cursor-pointer hover:border-neo-green transition-all shadow-[2px_2px_0px_var(--border-color)] group"
+                className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between cursor-pointer hover:border-neo-accent transition-all shadow-[2px_2px_0px_var(--border-color)] group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-neo-green text-black border border-black flex items-center justify-center font-bold">
+                  <div className="w-10 h-10 rounded-xl bg-neo-accent text-neo-accentText border border-black flex items-center justify-center font-bold">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-[11px] font-mono font-bold text-neo-muted">Direct Email</div>
-                    <div className="text-xs sm:text-sm font-black font-mono text-neo-text group-hover:text-emerald-500">
+                    <div className="text-xs sm:text-sm font-black font-mono text-neo-text group-hover:text-neo-text">
                       gursimran7058@gmail.com
                     </div>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-xl bg-neo-card border border-neo-border text-xs font-mono font-bold text-neo-text group-hover:bg-neo-green group-hover:text-black">
+                <span className="px-3 py-1 rounded-xl bg-neo-card border border-neo-border text-xs font-mono font-bold text-neo-text group-hover:bg-neo-accent group-hover:text-neo-accentText transition-colors">
                   Copy
                 </span>
               </div>
@@ -108,20 +105,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <a
                 href="tel:+917508002768"
                 onClick={() => sound.playClick(600, 'sine')}
-                className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between hover:border-neo-purple transition-all shadow-[2px_2px_0px_var(--border-color)] group block"
+                className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between hover:border-neo-accent transition-all shadow-[2px_2px_0px_var(--border-color)] group block"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-neo-purple text-black border border-black flex items-center justify-center font-bold">
+                  <div className="w-10 h-10 rounded-xl bg-neo-accent text-neo-accentText border border-black flex items-center justify-center font-bold">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-[11px] font-mono font-bold text-neo-muted">Phone / WhatsApp</div>
-                    <div className="text-xs sm:text-sm font-black font-mono text-neo-text group-hover:text-purple-500">
+                    <div className="text-xs sm:text-sm font-black font-mono text-neo-text group-hover:text-neo-text">
                       +91 7508002768
                     </div>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-xl bg-neo-card border border-neo-border text-xs font-mono font-bold text-neo-text group-hover:bg-neo-purple group-hover:text-black flex items-center gap-1">
+                <span className="px-3 py-1 rounded-xl bg-neo-card border border-neo-border text-xs font-mono font-bold text-neo-text group-hover:bg-neo-accent group-hover:text-neo-accentText transition-colors flex items-center gap-1">
                   <span>Call</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </span>
@@ -132,20 +129,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sound.playClick(650, 'sine')}
-                className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between hover:border-neo-blue transition-all shadow-[2px_2px_0px_var(--border-color)] group"
+                className="p-4 rounded-2xl bg-neo-bg border-2 border-neo-border flex items-center justify-between hover:border-neo-accent transition-all shadow-[2px_2px_0px_var(--border-color)] group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-neo-blue text-black border border-black flex items-center justify-center font-bold">
+                  <div className="w-10 h-10 rounded-xl bg-neo-accent text-neo-accentText border border-black flex items-center justify-center font-bold">
                     <Linkedin className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-[11px] font-mono font-bold text-neo-muted">LinkedIn Network</div>
-                    <div className="text-xs sm:text-sm font-black font-mono text-neo-text group-hover:text-blue-500">
+                    <div className="text-xs sm:text-sm font-black font-mono text-neo-text group-hover:text-neo-text">
                       gursimran-singh-jodhka-75a361321
                     </div>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-xl bg-neo-card border border-neo-border text-xs font-mono font-bold text-neo-text group-hover:bg-neo-blue group-hover:text-black flex items-center gap-1">
+                <span className="px-3 py-1 rounded-xl bg-neo-card border border-neo-border text-xs font-mono font-bold text-neo-text group-hover:bg-neo-accent group-hover:text-neo-accentText transition-colors flex items-center gap-1">
                   <span>Connect</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </span>
@@ -157,7 +154,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <div className="lg:col-span-6 p-6 sm:p-8 rounded-3xl bg-neo-bg border-2 border-neo-border shadow-[4px_4px_0px_var(--border-color)]">
             <div className="flex items-center justify-between pb-3 mb-4 border-b-2 border-neo-border">
               <span className="text-xs font-mono font-bold text-neo-text flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-neo-green" />
+                <Sparkles className="w-4 h-4 text-neo-text" />
                 <span>Send Quick Message</span>
               </span>
               <span className="text-[11px] font-mono text-neo-muted">Ludhiana, India 📍</span>
@@ -172,7 +169,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   placeholder="e.g. Rahul Sharma"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-sm text-neo-text placeholder-zinc-400 outline-none font-mono focus:border-neo-green"
+                  className="w-full px-4 py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-sm text-neo-text placeholder-zinc-400 outline-none font-mono focus:border-neo-accent"
                 />
               </div>
 
@@ -184,7 +181,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   placeholder="name@domain.com"
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-sm text-neo-text placeholder-zinc-400 outline-none font-mono focus:border-neo-green"
+                  className="w-full px-4 py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-sm text-neo-text placeholder-zinc-400 outline-none font-mono focus:border-neo-accent"
                 />
               </div>
 
@@ -196,14 +193,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   placeholder="Drop a note, advice, or feedback..."
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-sm text-neo-text placeholder-zinc-400 outline-none font-mono resize-none focus:border-neo-green"
+                  className="w-full px-4 py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-sm text-neo-text placeholder-zinc-400 outline-none font-mono resize-none focus:border-neo-accent"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={formState.sending}
-                className="w-full py-3 px-6 rounded-xl bg-neo-green text-black font-extrabold text-sm neo-btn flex items-center justify-center gap-2"
+                className="w-full py-3 px-6 rounded-xl btn-accent font-extrabold text-sm neo-btn flex items-center justify-center gap-2"
               >
                 {formState.sending ? (
                   <span>Transmitting...</span>
@@ -227,7 +224,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       {/* Footer */}
       <footer className="mt-16 text-center text-xs font-mono text-neo-muted font-bold space-y-2">
         <div>
-          © {new Date().getFullYear()} Gursimran Singh Jodhka. 17 y/o Class 11 Commerce Scholar.
+          © {new Date().getFullYear()} GSJ.
         </div>
         <div className="flex items-center justify-center gap-4 text-neo-text">
           <a
