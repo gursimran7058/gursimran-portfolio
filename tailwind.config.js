@@ -22,8 +22,8 @@ export default {
       },
       fontFamily: {
         sans: ['"Lato"', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Bodoni Moda"', '"Libre Bodoni"', 'Georgia', 'serif'],
-        serif: ['"Bodoni Moda"', '"Libre Bodoni"', 'Georgia', 'serif'],
+        display: ['"Libre Caslon Display"', '"Libre Caslon Text"', 'Georgia', 'serif'],
+        serif: ['"Libre Caslon Text"', '"Libre Caslon Display"', 'Georgia', 'serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       },
       boxShadow: {
