@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* LIGHT MODE: Sky Ocean Blue Canvas + PURPLE Accents/Buttons/Stickers */
+  /* LIGHT MODE: Sky Ocean Blue Canvas + PURPLE Accents */
   --bg-primary: #90d5ff;       /* Sky Ocean Blue Canvas */
   --bg-card: #FFFFFF;          /* Pure White Card Surface */
   --text-primary: #0F172A;     /* Slate Ink Text */
@@ -16,12 +16,6 @@
 
   --brand-purple: #7C3AED;
   --brand-blue: #0284C7;
-  --brand-orange: #7C3AED;
-  --brand-green: #7C3AED;
-  --brand-red: #7C3AED;
-  --brand-yellow: #7C3AED;
-  --brand-pink: #7C3AED;
-  --brand-beige: #E0F2FE;
 
   --shadow-offset: 5px 5px 0px #1E293B;
   --shadow-offset-hover: 8px 8px 0px #1E293B;
@@ -30,7 +24,7 @@
 }
 
 html.dark {
-  /* DARK MODE: Royal Purple Canvas + BLUE Accents/Buttons/Stickers */
+  /* DARK MODE: Royal Purple Canvas + BLUE Accents */
   --bg-primary: #1E0A3C;       /* Royal Purple Midnight Background */
   --bg-card: #2B1154;          /* Royal Purple Card Surface */
   --text-primary: #F8FAFC;     /* Pearl White Text */
@@ -43,12 +37,6 @@ html.dark {
 
   --brand-purple: #C084FC;
   --brand-blue: #38BDF8;
-  --brand-orange: #38BDF8;
-  --brand-green: #38BDF8;
-  --brand-red: #38BDF8;
-  --brand-yellow: #38BDF8;
-  --brand-pink: #38BDF8;
-  --brand-beige: #2E1065;
 
   --shadow-offset: 5px 5px 0px #0D031A;
   --shadow-offset-hover: 8px 8px 0px #0D031A;

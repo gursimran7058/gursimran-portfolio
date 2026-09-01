@@ -17,12 +17,7 @@ export default {
           accent: 'var(--accent-primary)',
           accentText: 'var(--accent-text)',
           purple: 'var(--brand-purple)',
-          blue: 'var(--brand-blue)',
-          orange: 'var(--accent-primary)',
-          green: 'var(--accent-primary)',
-          red: 'var(--accent-primary)',
-          yellow: 'var(--accent-primary)',
-          pink: 'var(--accent-primary)'
+          blue: 'var(--brand-blue)'
         }
       },
       fontFamily: {
