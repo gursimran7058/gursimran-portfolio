@@ -73,7 +73,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Display Headline */}
             <h1 className="hero-headline-title text-2.5xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-neo-text font-display">
               Building civic tech, managing operations & leading{' '}
-              <span className="hero-headline-highlight bg-neo-accent text-neo-accentText px-2.5 py-0.5 rounded-xl inline-block my-0.5 border-2 border-black dark:border-white shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#fff] -rotate-1 hover:rotate-0 transition-transform font-black">
+              <span className="hero-headline-highlight bg-purple-600 dark:bg-sky-500 text-white px-3 py-1 rounded-xl inline-block my-0.5 border-2 border-black dark:border-white shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#fff] -rotate-1 hover:rotate-0 transition-transform font-black">
                 commercial ventures.
               </span>
             </h1>

@@ -35,7 +35,7 @@ html.dark {
 
   /* Dark Mode Accent: BLUE for all buttons, badges, highlights, stickers */
   --accent-primary: #38BDF8;   /* Electric Azure Blue */
-  --accent-text: #0F172A;      /* Slate Ink Text on Blue Button */
+  --accent-text: #FFFFFF;      /* White Text on Blue Button */
 
   --brand-purple: #C084FC;
   --brand-blue: #38BDF8;
