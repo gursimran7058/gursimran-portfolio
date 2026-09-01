@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Moon, ArrowRight, Menu, X, Palette, Sparkles } from 'lucide-react';
+import { Sun, Moon, ArrowRight, Menu, X } from 'lucide-react';
 import IMAGES from '../assets/images';
 import { sound } from '../utils/audio';
 import { TypographyMode } from './ThemeCustomizerModal';
@@ -63,17 +63,17 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 py-3 transition-all duration-300">
+    <header id="navbar-header" className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 py-3 transition-all duration-300">
       <div className="max-w-6xl mx-auto">
         {/* 3-Column Split Navigation Bar */}
-        <nav className="neo-card py-2.5 px-3.5 sm:px-6 flex items-center justify-between backdrop-blur-md">
+        <nav className="navbar-container neo-card py-2.5 px-3.5 sm:px-6 flex items-center justify-between backdrop-blur-md">
           {/* Left Links */}
-          <div className="hidden md:flex items-center gap-5">
+          <div className="navbar-left-links hidden md:flex items-center gap-5">
             <a
               href="#hero"
               onClick={() => sound.playClick(400, 'sine')}
-              className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
-                activeSection === 'hero' ? 'text-neo-green font-black' : 'hover:text-emerald-500'
+              className={`navbar-link-item text-xs font-extrabold uppercase tracking-wider transition-colors ${
+                activeSection === 'hero' ? 'text-neo-text font-black underline underline-offset-4' : 'text-neo-muted hover:text-neo-text'
               }`}
             >
               About
@@ -81,8 +81,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="#credentials"
               onClick={() => sound.playClick(420, 'sine')}
-              className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
-                activeSection === 'credentials' ? 'text-neo-green font-black' : 'hover:text-emerald-500'
+              className={`navbar-link-item text-xs font-extrabold uppercase tracking-wider transition-colors ${
+                activeSection === 'credentials' ? 'text-neo-text font-black underline underline-offset-4' : 'text-neo-muted hover:text-neo-text'
               }`}
             >
               Credentials (96.2%)
@@ -90,18 +90,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="#now"
               onClick={() => sound.playClick(440, 'sine')}
-              className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
-                activeSection === 'now' ? 'text-neo-green font-black' : 'hover:text-emerald-500'
+              className={`navbar-link-item text-xs font-extrabold uppercase tracking-wider transition-colors ${
+                activeSection === 'now' ? 'text-neo-text font-black underline underline-offset-4' : 'text-neo-muted hover:text-neo-text'
               }`}
             >
               Now
             </a>
           </div>
 
-          {/* Center Emblem Avatar with Easter Egg Pop */}
+          {/* Center Emblem Avatar */}
           <div
             onClick={handleAvatarClick}
-            className="flex items-center gap-2.5 group select-none cursor-pointer"
+            className="navbar-brand-logo flex items-center gap-2.5 group select-none cursor-pointer"
             title="Click 5x to Unlock Trophy Achievement!"
           >
             <div className="relative">
@@ -123,25 +123,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }
                 }}
               />
-              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-neo-green rounded-full border-1.5 border-neo-border animate-pulse" />
+              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-neo-orange rounded-full border-1.5 border-neo-border animate-pulse" />
             </div>
             <div className="flex flex-col text-left">
               <span className="text-xs sm:text-sm font-extrabold tracking-tight font-display text-neo-text flex items-center gap-1">
                 <span>Gursimran</span>
                 {avatarClicks > 0 && (
-                  <span className="text-[10px] text-amber-500 font-mono">({avatarClicks}/5)</span>
+                  <span className="text-[10px] text-neo-text font-mono">({avatarClicks}/5)</span>
                 )}
               </span>
             </div>
           </div>
 
           {/* Right Links & Quick Controls */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="navbar-right-controls hidden md:flex items-center gap-3">
             <a
               href="#work"
               onClick={() => sound.playClick(460, 'sine')}
-              className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
-                activeSection === 'work' ? 'text-neo-blue font-black' : 'hover:text-blue-500'
+              className={`navbar-link-item text-xs font-extrabold uppercase tracking-wider transition-colors ${
+                activeSection === 'work' ? 'text-neo-text font-black underline underline-offset-4' : 'text-neo-muted hover:text-neo-text'
               }`}
             >
               Ventures
@@ -149,8 +149,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="#experience"
               onClick={() => sound.playClick(480, 'sine')}
-              className={`text-xs font-extrabold uppercase tracking-wider transition-colors ${
-                activeSection === 'experience' ? 'text-neo-blue font-black' : 'hover:text-blue-500'
+              className={`navbar-link-item text-xs font-extrabold uppercase tracking-wider transition-colors ${
+                activeSection === 'experience' ? 'text-neo-text font-black underline underline-offset-4' : 'text-neo-muted hover:text-neo-text'
               }`}
             >
               Roadmap
@@ -162,11 +162,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onToggleTheme();
                 sound.playThemeSwitch();
               }}
-              className="p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text neo-btn flex items-center justify-center"
+              className="navbar-theme-toggle-btn p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text neo-btn flex items-center justify-center"
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
               {darkMode ? (
-                <Sun className="w-4 h-4 text-purple-400" />
+                <Sun className="w-4 h-4 text-white" />
               ) : (
                 <Moon className="w-4 h-4 text-zinc-800" />
               )}
@@ -176,7 +176,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="#contact"
               onClick={() => sound.playClick(700, 'sine')}
-              className="px-4 py-2 rounded-xl bg-neo-orange text-white font-extrabold text-xs neo-btn flex items-center gap-1.5"
+              className="navbar-cta-button px-4 py-2 rounded-xl bg-neo-orange text-white font-extrabold text-xs neo-btn flex items-center gap-1.5"
             >
               <span>Let's Talk</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -193,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="Toggle theme"
               className="p-2 rounded-xl border-2 border-neo-border bg-neo-card text-neo-text"
             >
-              {darkMode ? <Sun className="w-4 h-4 text-purple-400" /> : <Moon className="w-4 h-4" />}
+              {darkMode ? <Sun className="w-4 h-4 text-white" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
               onClick={() => {
@@ -213,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-2 neo-card p-4 flex flex-col gap-3 backdrop-blur-lg shadow-xl"
+            className="navbar-mobile-drawer md:hidden mt-2 neo-card p-4 flex flex-col gap-3 backdrop-blur-lg shadow-xl"
           >
             {[
               { href: '#hero', label: 'About' },
@@ -230,7 +230,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setMobileMenuOpen(false);
                   sound.playClick(400, 'sine');
                 }}
-                className="text-sm font-extrabold uppercase py-1.5 px-2 rounded-lg text-neo-text hover:bg-neo-green hover:text-black transition-colors"
+                className="text-sm font-extrabold uppercase py-1.5 px-2 rounded-lg text-neo-text hover:bg-neo-orange hover:text-white transition-colors"
               >
                 {link.label}
               </a>

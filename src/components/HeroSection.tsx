@@ -31,13 +31,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section
-      id="hero"
-      className="relative pt-20 sm:pt-24 pb-6 sm:pb-10 px-3.5 sm:px-6 overflow-hidden"
+      id="hero-section"
+      className="hero-section-container relative pt-28 sm:pt-24 pb-6 sm:pb-10 px-3.5 sm:px-6 overflow-hidden"
     >
       {/* Crisp Floating Circles */}
-      <span className="bg-circle bg-circle-green w-8 h-8 top-16 left-4 sm:left-12" />
-      <span className="bg-circle bg-circle-purple w-10 h-10 top-20 right-4 sm:right-16" />
-      <span className="bg-circle bg-circle-red w-7 h-7 bottom-8 left-6" />
+      <span className="bg-circle bg-circle-purple w-8 h-8 top-16 left-4 sm:left-12" />
+      <span className="bg-circle bg-circle-orange w-10 h-10 top-20 right-4 sm:right-16" />
+      <span className="bg-circle bg-circle-purple w-7 h-7 bottom-8 left-6" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
@@ -46,27 +46,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="lg:col-span-7 order-2 lg:order-1 flex flex-col space-y-4"
+            className="hero-pitch-column lg:col-span-7 order-2 lg:order-1 flex flex-col space-y-4"
           >
             {/* Structured Diagonal Sticker Badge Flow */}
-            <div className="flex flex-wrap items-center gap-2 font-mono">
+            <div className="hero-sticker-badge-group flex flex-wrap items-center gap-2 font-mono">
               <span
                 onClick={() => sound.playClick(600, 'triangle')}
-                className="neo-sticker bg-neo-purple text-white text-[11px] cursor-pointer -rotate-2 hover:rotate-0 transition-transform"
+                className="hero-sticker-tag neo-sticker bg-neo-purple text-white text-[11px] cursor-pointer -rotate-2 hover:rotate-0 transition-transform"
               >
                 <Zap className="w-3.5 h-3.5 fill-white" />
                 <span>17 y/o Founder & Builder</span>
               </span>
               <span
                 onClick={() => sound.playClick(650, 'triangle')}
-                className="neo-sticker bg-neo-orange text-white text-[11px] cursor-pointer rotate-1 hover:rotate-0 transition-transform"
+                className="hero-sticker-tag neo-sticker bg-neo-orange text-white text-[11px] cursor-pointer rotate-1 hover:rotate-0 transition-transform"
               >
                 <GraduationCap className="w-3.5 h-3.5" />
                 <span>B.C.M. Arya (96.2%)</span>
               </span>
               <span
                 onClick={() => sound.playClick(700, 'triangle')}
-                className="neo-sticker bg-neo-purple text-white text-[11px] cursor-pointer -rotate-1 hover:rotate-0 transition-transform"
+                className="hero-sticker-tag neo-sticker bg-neo-purple text-white text-[11px] cursor-pointer -rotate-1 hover:rotate-0 transition-transform"
               >
                 <Trophy className="w-3.5 h-3.5" />
                 <span>Capital Markets Intern</span>
@@ -74,20 +74,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Display Headline */}
-            <h1 className="text-2.5xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-neo-text font-display">
+            <h1 className="hero-headline-title text-2.5xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-neo-text font-display">
               Building civic tech, managing operations & leading{' '}
-              <span className="bg-neo-orange text-white px-2.5 py-0.5 rounded-xl inline-block my-0.5 border-2 border-black shadow-[3px_3px_0px_#000] -rotate-1 hover:rotate-0 transition-transform">
+              <span className="hero-headline-highlight bg-neo-orange text-white px-2.5 py-0.5 rounded-xl inline-block my-0.5 border-2 border-black shadow-[3px_3px_0px_#000] -rotate-1 hover:rotate-0 transition-transform">
                 commercial ventures.
               </span>
             </h1>
 
             {/* Decluttered, Crisp Bio */}
-            <p className="text-xs sm:text-sm text-neo-muted leading-relaxed declutter-text max-w-[55ch]">
-              High-school Commerce scholar at <strong className="text-neo-text font-bold">B.C.M. Arya</strong> (<strong className="text-purple-500 font-bold">96.2%</strong>). Trained at <strong className="text-neo-text font-semibold">Ludhiana Stock & Capital Ltd</strong> (rated "Excellent"). Founder of <strong className="text-neo-text font-semibold">BookMyEmergency</strong>, Manager at <strong className="text-neo-text font-semibold">New Era Electronics</strong>, and core literacy member at <strong className="text-neo-text font-semibold">Youth Capital Foundation</strong>.
+            <p className="hero-bio-text text-xs sm:text-sm text-neo-muted leading-relaxed declutter-text max-w-[55ch]">
+              High-school Commerce scholar at <strong className="text-neo-text font-bold">B.C.M. Arya</strong> (<strong className="text-neo-text font-bold">96.2%</strong>). Trained at <strong className="text-neo-text font-semibold">Ludhiana Stock & Capital Ltd</strong> (rated "Excellent"). Founder of <strong className="text-neo-text font-semibold">BookMyEmergency</strong>, Manager at <strong className="text-neo-text font-semibold">New Era Electronics</strong>, and core literacy member at <strong className="text-neo-text font-semibold">Youth Capital Foundation</strong>.
             </p>
 
             {/* Key Credentials Row */}
-            <div className="space-y-1.5 pt-0.5">
+            <div className="hero-credentials-track-record space-y-1.5 pt-0.5">
               <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-neo-muted">
                 Key Credentials & Track Record
               </div>
@@ -96,35 +96,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   onClick={() => sound.playClick(500, 'sine')}
                   className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-purple cursor-pointer transition-all"
                 >
-                  <Award className="w-4 h-4 text-purple-500 shrink-0" />
+                  <Award className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">96.2% CBSE (99 Fin Markets, 97 Maths)</span>
                 </div>
                 <div
                   onClick={() => sound.playClick(550, 'sine')}
                   className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-orange cursor-pointer transition-all"
                 >
-                  <Trophy className="w-4 h-4 text-orange-500 shrink-0" />
+                  <Trophy className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">Ludhiana Stock Exchange Training</span>
                 </div>
                 <div
                   onClick={() => sound.playClick(600, 'sine')}
                   className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-orange cursor-pointer transition-all"
                 >
-                  <HeartHandshake className="w-4 h-4 text-orange-500 shrink-0" />
+                  <HeartHandshake className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">BookMyEmergency Social Welfare Tech</span>
                 </div>
                 <div
                   onClick={() => sound.playClick(650, 'sine')}
                   className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-purple cursor-pointer transition-all"
                 >
-                  <Building2 className="w-4 h-4 text-purple-500 shrink-0" />
+                  <Building2 className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">Manager @ New Era Electronics</span>
                 </div>
               </div>
             </div>
 
             {/* Campus Stays Row */}
-            <div className="p-2.5 rounded-2xl bg-neo-bg border border-neo-border flex flex-wrap items-center gap-1.5 text-[11px] font-mono text-neo-muted">
+            <div className="hero-campus-hostel-row p-2.5 rounded-2xl bg-neo-bg border border-neo-border flex flex-wrap items-center gap-1.5 text-[11px] font-mono text-neo-muted">
               <span className="font-extrabold text-neo-text">Campus Hostel Stays:</span>
               <span className="px-2 py-0.5 rounded-md bg-neo-card border border-neo-border text-neo-text">IIT Ropar</span>
               <span className="px-2 py-0.5 rounded-md bg-neo-card border border-neo-border text-neo-text">IIT Delhi</span>
@@ -133,11 +133,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-0.5">
+            <div className="hero-action-buttons flex flex-wrap items-center gap-3 pt-0.5">
               <a
                 href="#credentials"
                 onClick={() => sound.playSuccess()}
-                className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-neo-orange text-white font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
+                className="hero-btn-certificates w-full sm:w-auto px-5 py-3 rounded-2xl bg-neo-orange text-white font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
               >
                 <Trophy className="w-4 h-4 text-white" />
                 <span>View Certificates & 96.2% Trophy</span>
@@ -147,24 +147,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <a
                 href="#work"
                 onClick={() => sound.playClick(500, 'sine')}
-                className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-neo-purple text-white font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
+                className="hero-btn-ventures w-full sm:w-auto px-5 py-3 rounded-2xl bg-neo-purple text-white font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
               >
                 <span>Explore Ventures</span>
               </a>
             </div>
 
             {/* Direct Connect Chips */}
-            <div className="flex flex-wrap items-center gap-3 text-xs font-mono font-bold text-neo-muted">
+            <div className="hero-direct-connect-chips flex flex-wrap items-center gap-3 text-xs font-mono font-bold text-neo-muted">
               <span className="hidden sm:inline">Direct:</span>
               <button
                 onClick={() => {
                   onCopyEmail();
                   sound.playSuccess();
                 }}
-                className="flex items-center gap-1 hover:text-purple-500 transition-colors"
+                className="flex items-center gap-1 hover:text-neo-text transition-colors"
               >
-                <Mail className="w-3.5 h-3.5 text-neo-purple" />
-                <span className="text-[11px] sm:text-xs">gursimran7058@gmail.com</span>
+                <Mail className="w-3.5 h-3.5 text-neo-text" />
+                <span className="text-[11px] sm:text-xs text-neo-text">gursimran7058@gmail.com</span>
               </button>
               <span>•</span>
               <a
@@ -172,10 +172,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sound.playClick(600, 'sine')}
-                className="flex items-center gap-1 hover:text-orange-500 transition-colors"
+                className="flex items-center gap-1 hover:text-neo-text transition-colors"
               >
-                <Linkedin className="w-3.5 h-3.5 text-neo-orange" />
-                <span className="text-[11px] sm:text-xs">LinkedIn</span>
+                <Linkedin className="w-3.5 h-3.5 text-neo-text" />
+                <span className="text-[11px] sm:text-xs text-neo-text">LinkedIn</span>
               </a>
               <span>•</span>
               <button
@@ -183,10 +183,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   onCopyPhone();
                   sound.playSuccess();
                 }}
-                className="flex items-center gap-1 hover:text-purple-500 transition-colors"
+                className="flex items-center gap-1 hover:text-neo-text transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-neo-purple" />
-                <span className="text-[11px] sm:text-xs">+91 7508002768</span>
+                <Phone className="w-3.5 h-3.5 text-neo-text" />
+                <span className="text-[11px] sm:text-xs text-neo-text">+91 7508002768</span>
               </button>
             </div>
           </motion.div>
@@ -196,10 +196,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="lg:col-span-5 order-1 lg:order-2 space-y-3"
+            className="hero-avatar-credentials-column lg:col-span-5 order-1 lg:order-2 space-y-3"
           >
             {/* Real Avatar Card */}
-            <div className="neo-card p-3.5 sm:p-4 relative overflow-hidden group">
+            <div className="hero-avatar-profile-card neo-card p-3.5 sm:p-4 relative overflow-hidden group">
               <div className="flex items-center gap-3 sm:gap-4">
                 <img
                   src={IMAGES.avatar}
@@ -226,7 +226,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="text-xs font-mono text-neo-muted font-bold">
                     Class 11 Commerce • 17 y/o
                   </div>
-                  <div className="text-[11px] font-mono text-purple-500 font-extrabold truncate">
+                  <div className="text-[11px] font-mono text-neo-text font-extrabold truncate">
                     B.C.M. Arya Model Sr. Sec. School
                   </div>
                   <div className="inline-block px-2.5 py-0.5 rounded-full bg-neo-orange text-white text-[10px] sm:text-[11px] font-extrabold border border-black">
@@ -237,10 +237,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Academic & Internship Verified Showcase Card */}
-            <div className="neo-card p-4 sm:p-5 space-y-3 sm:space-y-4">
+            <div className="hero-credentials-showcase-card neo-card p-4 sm:p-5 space-y-3 sm:space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-extrabold font-mono uppercase tracking-wider text-neo-text flex items-center gap-1.5">
-                  <Trophy className="w-4 h-4 text-orange-500" />
+                  <Trophy className="w-4 h-4 text-neo-text" />
                   <span>Verified Credentials</span>
                 </span>
                 <span className="text-[11px] font-mono font-bold text-white bg-neo-purple px-2 py-0.5 rounded-md">
@@ -251,7 +251,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* 2 Quick Mini Badges */}
               <div className="grid grid-cols-2 gap-2">
                 <div className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
-                  <div className="text-xl sm:text-2xl font-black font-mono text-purple-500">
+                  <div className="text-xl sm:text-2xl font-black font-mono text-neo-text">
                     96.2%
                   </div>
                   <div className="text-[10px] font-mono text-neo-muted font-bold">
@@ -263,7 +263,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
 
                 <div className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
-                  <div className="text-xl sm:text-2xl font-black font-mono text-orange-500">
+                  <div className="text-xl sm:text-2xl font-black font-mono text-neo-text">
                     Excellent
                   </div>
                   <div className="text-[10px] font-mono text-neo-muted font-bold">
@@ -279,22 +279,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="p-3 rounded-2xl bg-neo-bg border border-neo-border space-y-1.5 text-xs font-mono">
                 <div className="flex justify-between items-center text-neo-text font-bold">
                   <span>Intro to Financial Markets:</span>
-                  <span className="text-purple-500 font-black">99 / 100 (A1)</span>
+                  <span className="text-neo-text font-black">99 / 100 (A1)</span>
                 </div>
                 <div className="flex justify-between items-center text-neo-text font-bold">
                   <span>Mathematics Standard:</span>
-                  <span className="text-purple-500 font-black">97 / 100 (A1)</span>
+                  <span className="text-neo-text font-black">97 / 100 (A1)</span>
                 </div>
                 <div className="flex justify-between items-center text-neo-text font-bold">
                   <span>Punjabi & English:</span>
-                  <span className="text-purple-500 font-black">96 & 95 (A1)</span>
+                  <span className="text-neo-text font-black">96 & 95 (A1)</span>
                 </div>
               </div>
 
               <a
                 href="#credentials"
                 onClick={() => sound.playSuccess()}
-                className="w-full py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-blue hover:text-white transition-all"
+                className="w-full py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-orange hover:text-white transition-all"
               >
                 <span>View Trophy & Certificates</span>
                 <ArrowRight className="w-3.5 h-3.5" />
