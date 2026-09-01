@@ -14,7 +14,7 @@ export const NOW_DATA: NowData = {
   location: 'Ludhiana, Punjab, India',
   school: 'B.C.M. Arya Model Sr. Sec. School, Ludhiana',
   studying: [
-    'Class 11 Commerce at B.C.M. Arya Model Sr. Sec. School: Accountancy, Economics & Business Studies (Class 10th: 96.2%)',
+    'Class 11 Commerce at B.C.M. Arya Model Sr. Sec. School: Accountancy & Economics (Class 10th: 96.2%)',
     'Financial markets fundamentals, trading mechanics, and capital allocation learned during Ludhiana Stock and Capital Limited internship',
     'Real-world business management and operational workflows through New Era Electronics'
   ],

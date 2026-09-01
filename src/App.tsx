@@ -10,7 +10,7 @@ import { CommandPalette } from './components/CommandPalette';
 import { ProjectModal } from './components/ProjectModal';
 import { Toast } from './components/Toast';
 import { InteractiveAura } from './components/InteractiveAura';
-import { ThemeCustomizerModal, PaletteTheme } from './components/ThemeCustomizerModal';
+import { ThemeCustomizerModal, TypographyMode } from './components/ThemeCustomizerModal';
 import { EasterEggBanner } from './components/EasterEggBanner';
 import { sound } from './utils/audio';
 import { Project } from './types';
@@ -18,12 +18,12 @@ import { Project } from './types';
 export const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : true; // Default to luxury dark mode
+    return saved ? saved === 'dark' : true;
   });
 
-  const [palette, setPalette] = useState<PaletteTheme>(() => {
-    const saved = localStorage.getItem('palette');
-    return (saved as PaletteTheme) || 'gold';
+  const [typography, setTypography] = useState<TypographyMode>(() => {
+    const saved = localStorage.getItem('typography');
+    return (saved as TypographyMode) || 'bold-asymmetric';
   });
 
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
@@ -44,11 +44,11 @@ export const App: React.FC = () => {
     }
   }, [darkMode]);
 
-  // Sync palette theme with HTML data attribute and localStorage
+  // Sync typography preset with HTML data attribute and localStorage
   useEffect(() => {
-    document.documentElement.setAttribute('data-palette', palette);
-    localStorage.setItem('palette', palette);
-  }, [palette]);
+    document.documentElement.setAttribute('data-typography', typography);
+    localStorage.setItem('typography', typography);
+  }, [typography]);
 
   // Sync sound setting with sound system
   useEffect(() => {
@@ -57,7 +57,7 @@ export const App: React.FC = () => {
 
   const toggleTheme = () => {
     setDarkMode((prev) => !prev);
-    showToast(!darkMode ? 'Switched to Obsidian Midnight Dark Mode 🌙' : 'Switched to Alabaster Silk Studio ☀️');
+    showToast(!darkMode ? 'Switched to Midnight Dark Mode 🌙' : 'Switched to Studio Light Mode ☀️');
   };
 
   const showToast = (msg: string) => {
@@ -91,26 +91,26 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-neo-bg text-neo-text selection:bg-neo-yellow selection:text-black transition-colors duration-400 overflow-x-hidden relative">
+    <div className="min-h-screen bg-neo-bg text-neo-text selection:bg-emerald-500 selection:text-black transition-colors duration-400 overflow-x-hidden relative neo-grid-bg">
       {/* Interactive Cursor Aura Spotlight & Spark Explosions */}
       <InteractiveAura />
 
-      {/* 3-Column Split Navigation */}
+      {/* Navigation */}
       <Navbar
         darkMode={darkMode}
         onToggleTheme={toggleTheme}
         onOpenCommand={() => setIsCommandOpen(true)}
         onOpenCustomizer={() => setIsCustomizerOpen(true)}
         onTriggerEasterEgg={() => setIsEasterEggOpen(true)}
-        currentPalette={palette}
-        onSelectPalette={(p) => {
-          setPalette(p);
-          showToast(`Applied ${p.toUpperCase()} luxury palette! ✨`);
+        currentTypography={typography}
+        onSelectTypography={(t) => {
+          setTypography(t);
+          showToast(`Applied ${t.replace('-', ' ').toUpperCase()} typography! ✒️`);
         }}
       />
 
-      {/* Main Content */}
-      <main className="space-y-4 relative z-10">
+      {/* Main Content with Increased Whitespace for Minimalism */}
+      <main className="space-y-12 sm:space-y-16 relative z-10">
         <HeroSection
           onCopyEmail={handleCopyEmail}
           onCopyPhone={handleCopyPhone}
@@ -146,10 +146,10 @@ export const App: React.FC = () => {
         onClose={() => setIsCustomizerOpen(false)}
         darkMode={darkMode}
         onToggleTheme={toggleTheme}
-        currentPalette={palette}
-        onSelectPalette={(p) => {
-          setPalette(p);
-          showToast(`Applied ${p.toUpperCase()} luxury palette! ✨`);
+        currentTypography={typography}
+        onSelectTypography={(t) => {
+          setTypography(t);
+          showToast(`Applied ${t.replace('-', ' ').toUpperCase()} typography! ✒️`);
         }}
         soundEnabled={soundEnabled}
         onToggleSound={() => setSoundEnabled(!soundEnabled)}

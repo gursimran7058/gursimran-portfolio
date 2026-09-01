@@ -48,7 +48,8 @@ export const FinanceSimulator: React.FC<FinanceSimulatorProps> = ({ onShowToast 
   // DCF Model
   const ebit = revenue * (ebitMargin / 100);
   const fcff = ebit * 0.75;
-  const intrinsicVal = (fcff * (1 + terminalGrowth / 100)) / (waccRate / 100 - terminalGrowth / 100);
+  const waccGrowthDiff = Math.max(0.1, waccRate - terminalGrowth) / 100;
+  const intrinsicVal = (fcff * (1 + terminalGrowth / 100)) / waccGrowthDiff;
 
   const formatINR = (val: number) => {
     if (val >= 10000000) return `₹${(val / 10000000).toFixed(2)} Cr`;

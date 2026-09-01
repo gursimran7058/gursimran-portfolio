@@ -71,7 +71,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
             }}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold neo-btn transition-all ${
               filterCategory === tab.id
-                ? 'bg-neo-yellow text-black border-2 border-black'
+                ? 'bg-neo-blue text-white border-2 border-black'
                 : 'bg-neo-card text-neo-text hover:bg-neo-bg'
             }`}
           >
@@ -83,229 +83,245 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
       {/* Grid of Projects */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* CARD 1: BookMyEmergency (Span: 8 Cols) */}
-        {filteredProjects.find((p) => p.id === 'bookmyemergency') && (
-          <div className="lg:col-span-8 neo-card p-5 sm:p-8 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="neo-badge bg-rose-400 text-black">
-                  <HeartHandshake className="w-3.5 h-3.5" />
-                  Social Welfare & SOS Tech
-                </span>
-                <span className="text-xs font-mono font-bold text-emerald-500 bg-black px-2.5 py-0.5 rounded-full border border-emerald-500/40">
-                  ● Building Now
-                </span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-black text-neo-text font-display">
-                {FEATURED_PROJECTS[0].title}
-              </h3>
-              <p className="text-sm text-neo-muted leading-relaxed max-w-2xl font-medium">
-                {FEATURED_PROJECTS[0].description}
-              </p>
-
-              {/* Mission Pillars Box */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
-                <div className="space-y-0.5">
-                  <div className="text-base sm:text-lg font-black font-mono text-rose-500">&lt; 60s Triage</div>
-                  <div className="text-[11px] font-mono text-neo-muted font-bold">Rapid SOS Routing</div>
-                </div>
-                <div className="space-y-0.5">
-                  <div className="text-base sm:text-lg font-black font-mono text-neo-text">Verified Providers</div>
-                  <div className="text-[11px] font-mono text-neo-muted font-bold">Ambulance & Hospitals</div>
-                </div>
-                <div className="space-y-0.5">
-                  <div className="text-base sm:text-lg font-black font-mono text-emerald-500">Public Good</div>
-                  <div className="text-[11px] font-mono text-neo-muted font-bold">Zero-Fee Welfare</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Row */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t-2 border-neo-border">
-              <div className="flex flex-wrap items-center gap-2">
-                {FEATURED_PROJECTS[0].tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-1 rounded-lg bg-neo-bg border border-neo-border text-[11px] font-mono font-bold text-neo-text"
-                  >
-                    {tag}
+        {(() => {
+          const p = filteredProjects.find((item) => item.id === 'bookmyemergency-welfare');
+          if (!p) return null;
+          return (
+            <div className="lg:col-span-8 neo-card p-5 sm:p-8 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="neo-badge bg-neo-orange text-white">
+                    <HeartHandshake className="w-3.5 h-3.5" />
+                    Social Welfare & SOS Tech
                   </span>
-                ))}
+                  <span className="text-xs font-mono font-bold text-blue-500 bg-black px-2.5 py-0.5 rounded-full border border-blue-500/40">
+                    ● Building Now
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black text-neo-text font-display">
+                  {p.title}
+                </h3>
+                <p className="text-sm text-neo-muted leading-relaxed max-w-2xl font-medium">
+                  {p.description}
+                </p>
+
+                {/* Mission Pillars Box */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
+                  <div className="space-y-0.5">
+                    <div className="text-base sm:text-lg font-black font-mono text-orange-500">&lt; 60s Triage</div>
+                    <div className="text-[11px] font-mono text-neo-muted font-bold">Rapid SOS Routing</div>
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="text-base sm:text-lg font-black font-mono text-neo-text">Verified Providers</div>
+                    <div className="text-[11px] font-mono text-neo-muted font-bold">Ambulance & Hospitals</div>
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="text-base sm:text-lg font-black font-mono text-blue-500">Public Good</div>
+                    <div className="text-[11px] font-mono text-neo-muted font-bold">Zero-Fee Welfare</div>
+                  </div>
+                </div>
               </div>
 
-              <button
-                onClick={() => {
-                  onSelectProject(FEATURED_PROJECTS[0]);
-                  sound.playSuccess();
-                }}
-                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-green hover:text-black transition-colors"
-              >
-                <span>Read Mission Overview</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              {/* Bottom Row */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t-2 border-neo-border">
+                <div className="flex flex-wrap items-center gap-2">
+                  {p.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 rounded-lg bg-neo-bg border border-neo-border text-[11px] font-mono font-bold text-neo-text"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => {
+                    onSelectProject(p);
+                    sound.playSuccess();
+                  }}
+                  className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-blue hover:text-white transition-colors"
+                >
+                  <span>Read Mission Overview</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
 
         {/* CARD 2: Guldasta (Span: 4 Cols) */}
-        {filteredProjects.find((p) => p.id === 'guldasta') && (
-          <div className="lg:col-span-4 neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="neo-badge bg-neo-yellow text-black">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  {FEATURED_PROJECTS[1].category}
-                </span>
-                <span className="text-xs font-mono font-bold text-neo-muted">
-                  {FEATURED_PROJECTS[1].timeline}
-                </span>
-              </div>
-
-              <h3 className="text-xl font-black text-neo-text font-display">
-                {FEATURED_PROJECTS[1].title}
-              </h3>
-              <p className="text-xs sm:text-sm text-neo-muted leading-relaxed font-medium">
-                {FEATURED_PROJECTS[1].subtitle}
-              </p>
-
-              {/* Startup Highlights Note */}
-              <div className="p-3.5 rounded-xl bg-neo-bg border border-neo-border space-y-1">
-                <div className="text-[11px] font-mono font-bold text-amber-500 flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Grassroots Commerce Initiative</span>
+        {(() => {
+          const p = filteredProjects.find((item) => item.id === 'guldasta-startup');
+          if (!p) return null;
+          return (
+            <div className="lg:col-span-4 neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="neo-badge bg-neo-purple text-black">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    {p.category}
+                  </span>
+                  <span className="text-xs font-mono font-bold text-neo-muted">
+                    {p.timeline}
+                  </span>
                 </div>
-                <p className="text-[11px] text-neo-muted leading-tight font-medium">
-                  Direct customer testing, resilient unit economics, and local supplier management.
+
+                <h3 className="text-xl font-black text-neo-text font-display">
+                  {p.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-neo-muted leading-relaxed font-medium">
+                  {p.subtitle}
                 </p>
+
+                {/* Startup Highlights Note */}
+                <div className="p-3.5 rounded-xl bg-neo-bg border border-neo-border space-y-1">
+                  <div className="text-[11px] font-mono font-bold text-amber-500 flex items-center gap-1">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Grassroots Commerce Initiative</span>
+                  </div>
+                  <p className="text-[11px] text-neo-muted leading-tight font-medium">
+                    Direct customer testing, resilient unit economics, and local supplier management.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t-2 border-neo-border flex items-center justify-between">
+                <span className="text-xs font-mono font-bold text-neo-muted">Co-Founder (Jan 2026)</span>
+                <button
+                  onClick={() => {
+                    onSelectProject(p);
+                    sound.playSuccess();
+                  }}
+                  className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-yellow hover:text-black transition-all"
+                >
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
-
-            <div className="pt-3 border-t-2 border-neo-border flex items-center justify-between">
-              <span className="text-xs font-mono font-bold text-neo-muted">Co-Founder (Jan 2026)</span>
-              <button
-                onClick={() => {
-                  onSelectProject(FEATURED_PROJECTS[1]);
-                  sound.playSuccess();
-                }}
-                className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-yellow hover:text-black transition-all"
-              >
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
+          );
+        })()}
 
         {/* CARD 3: New Era Electronics (Span: 4 Cols) */}
-        {filteredProjects.find((p) => p.id === 'new-era-electronics') && (
-          <div className="lg:col-span-4 neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="neo-badge bg-neo-blue text-black">
-                  <Building2 className="w-3.5 h-3.5" />
-                  {FEATURED_PROJECTS[2].category}
-                </span>
-                <span className="text-xs font-mono font-bold text-neo-muted">
-                  Family Enterprise
-                </span>
-              </div>
-
-              <h3 className="text-xl font-black text-neo-text font-display">
-                {FEATURED_PROJECTS[2].title}
-              </h3>
-              <p className="text-xs sm:text-sm text-neo-muted leading-relaxed font-medium">
-                {FEATURED_PROJECTS[2].subtitle}
-              </p>
-
-              <div className="p-3.5 rounded-xl bg-neo-bg border border-neo-border space-y-2">
-                <div className="text-[11px] font-mono font-bold text-blue-500 flex items-center gap-1.5">
-                  <Building2 className="w-3.5 h-3.5" />
-                  <span>Operations & Retail Store Management</span>
+        {(() => {
+          const p = filteredProjects.find((item) => item.id === 'new-era-electronics');
+          if (!p) return null;
+          return (
+            <div className="lg:col-span-4 neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="neo-badge bg-neo-blue text-black">
+                    <Building2 className="w-3.5 h-3.5" />
+                    {p.category}
+                  </span>
+                  <span className="text-xs font-mono font-bold text-neo-muted">
+                    Family Enterprise
+                  </span>
                 </div>
-                <p className="text-[11px] text-neo-muted leading-tight font-medium">
-                  Auditing inventory, managing vendor ledger balances, and optimizing day-to-day working capital flow.
+
+                <h3 className="text-xl font-black text-neo-text font-display">
+                  {p.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-neo-muted leading-relaxed font-medium">
+                  {p.subtitle}
                 </p>
+
+                <div className="p-3.5 rounded-xl bg-neo-bg border border-neo-border space-y-2">
+                  <div className="text-[11px] font-mono font-bold text-blue-500 flex items-center gap-1.5">
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>Operations & Retail Store Management</span>
+                  </div>
+                  <p className="text-[11px] text-neo-muted leading-tight font-medium">
+                    Auditing inventory, managing vendor ledger balances, and optimizing day-to-day working capital flow.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t-2 border-neo-border flex items-center justify-between">
+                <span className="text-xs font-mono font-bold text-neo-muted">Managerial Role</span>
+                <button
+                  onClick={() => {
+                    onSelectProject(p);
+                    sound.playSuccess();
+                  }}
+                  className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-blue hover:text-black transition-all"
+                >
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
-
-            <div className="pt-3 border-t-2 border-neo-border flex items-center justify-between">
-              <span className="text-xs font-mono font-bold text-neo-muted">Managerial Role</span>
-              <button
-                onClick={() => {
-                  onSelectProject(FEATURED_PROJECTS[2]);
-                  sound.playSuccess();
-                }}
-                className="w-9 h-9 rounded-full bg-neo-bg border-2 border-neo-border flex items-center justify-center hover:bg-neo-blue hover:text-black transition-all"
-              >
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
+          );
+        })()}
 
         {/* CARD 4: Youth Capital Foundation (Span: 8 Cols) */}
-        {filteredProjects.find((p) => p.id === 'youth-capital-foundation') && (
-          <div className="lg:col-span-8 neo-card p-5 sm:p-8 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="neo-badge bg-neo-purple text-black">
-                  <Users className="w-3.5 h-3.5" />
-                  {FEATURED_PROJECTS[3].category}
-                </span>
-                <span className="text-xs font-mono font-bold text-neo-muted">
-                  {FEATURED_PROJECTS[3].timeline}
-                </span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-black text-neo-text font-display">
-                {FEATURED_PROJECTS[3].title}
-              </h3>
-              <p className="text-sm text-neo-muted leading-relaxed max-w-2xl font-medium">
-                Serving as a core pillar of Youth Capital Foundation dedicated to reaching underprivileged students and making everyone financially aware through accessible money management and savings guidance.
-              </p>
-
-              {/* Outreach Metrics Box */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
-                <div className="space-y-0.5">
-                  <div className="text-base sm:text-lg font-black font-mono text-emerald-500">Underprivileged Students</div>
-                  <div className="text-[11px] font-mono text-neo-muted font-bold">Primary Target Audience</div>
-                </div>
-                <div className="space-y-0.5">
-                  <div className="text-base sm:text-lg font-black font-mono text-neo-text">Universal Access</div>
-                  <div className="text-[11px] font-mono text-neo-muted font-bold">Financial Awareness for All</div>
-                </div>
-                <div className="space-y-0.5">
-                  <div className="text-base sm:text-lg font-black font-mono text-purple-500">Core Literacy Member</div>
-                  <div className="text-[11px] font-mono text-neo-muted font-bold">Community Education</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Row */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t-2 border-neo-border">
-              <div className="flex flex-wrap items-center gap-2">
-                {FEATURED_PROJECTS[3].tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-1 rounded-lg bg-neo-bg border border-neo-border text-[11px] font-mono font-bold text-neo-text"
-                  >
-                    {tag}
+        {(() => {
+          const p = filteredProjects.find((item) => item.id === 'youth-capital-foundation');
+          if (!p) return null;
+          return (
+            <div className="lg:col-span-8 neo-card p-5 sm:p-8 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="neo-badge bg-neo-purple text-black">
+                    <Users className="w-3.5 h-3.5" />
+                    {p.category}
                   </span>
-                ))}
+                  <span className="text-xs font-mono font-bold text-neo-muted">
+                    {p.timeline}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black text-neo-text font-display">
+                  {p.title}
+                </h3>
+                <p className="text-sm text-neo-muted leading-relaxed max-w-2xl font-medium">
+                  Serving as a core pillar of Youth Capital Foundation dedicated to reaching underprivileged students and making everyone financially aware through accessible money management and savings guidance.
+                </p>
+
+                {/* Outreach Metrics Box */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
+                  <div className="space-y-0.5">
+                    <div className="text-base sm:text-lg font-black font-mono text-emerald-500">Underprivileged Students</div>
+                    <div className="text-[11px] font-mono text-neo-muted font-bold">Primary Target Audience</div>
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="text-base sm:text-lg font-black font-mono text-neo-text">Universal Access</div>
+                    <div className="text-[11px] font-mono text-neo-muted font-bold font-display">Financial Awareness for All</div>
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="text-base sm:text-lg font-black font-mono text-purple-500">Core Literacy Member</div>
+                    <div className="text-[11px] font-mono text-neo-muted font-bold">Community Education</div>
+                  </div>
+                </div>
               </div>
 
-              <button
-                onClick={() => {
-                  onSelectProject(FEATURED_PROJECTS[3]);
-                  sound.playSuccess();
-                }}
-                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-purple hover:text-black transition-colors"
-              >
-                <span>Read Initiative Story</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              {/* Bottom Row */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t-2 border-neo-border">
+                <div className="flex flex-wrap items-center gap-2">
+                  {p.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 rounded-lg bg-neo-bg border border-neo-border text-[11px] font-mono font-bold text-neo-text"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => {
+                    onSelectProject(p);
+                    sound.playSuccess();
+                  }}
+                  className="w-full sm:w-auto px-4 py-2 rounded-xl bg-neo-card text-neo-text font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-purple hover:text-black transition-colors"
+                >
+                  <span>Read Initiative Story</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
     </section>
   );

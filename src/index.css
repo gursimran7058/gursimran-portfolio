@@ -3,105 +3,99 @@
 @tailwind utilities;
 
 :root {
-  /* LIGHT MODE: Champagne Silk Studio (Alabaster Silk & Royal Emerald Gold) */
-  --bg-primary: #F6F2EA;       /* Warm silk champagne alabaster */
-  --bg-card: #FFFFFF;          /* Pure porcelain silk card surface */
-  --text-primary: #0B0F19;     /* High-contrast deep obsidian ink */
-  --text-secondary: #475569;   /* Refined metallic slate steel */
-  --border-color: #1E293B;     /* Crisp high-contrast obsidian border */
+  /* LIGHT MODE: Vibrant Sky Ocean Blue Canvas */
+  --bg-primary: #90d5ff;       /* Sky Ocean Blue Canvas */
+  --bg-card: #FFFFFF;          /* Pure white card surface */
+  --text-primary: #0F172A;     /* High-contrast deep slate ink */
+  --text-secondary: #334155;   /* Slate text */
+  --border-color: #1E293B;     /* Crisp 2px high-contrast border */
   
-  /* Rich Vibrant Luxury Palette (Light Mode Accents) */
-  --brand-yellow: #D97706;     /* Imperial Metallic Amber Gold */
-  --brand-green: #047857;      /* Royal Emerald Jewel */
-  --brand-blue: #0284C7;       /* Royal Sapphire Azure */
-  --brand-purple: #6D28D9;     /* Crown Amethyst Velvet */
-  --brand-pink: #BE123C;       /* Sunset Crimson Ruby */
-  --brand-beige: #F3ECE1;      /* Warm Silk Cream */
+  /* STRICT COLOR SCHEME: PURPLE, BLUE, ORANGE ONLY */
+  --brand-purple: #7C3AED;     /* Royal Amethyst Purple */
+  --brand-blue: #0284C7;       /* Rich Ocean Blue */
+  --brand-orange: #EA580C;     /* Sunset Amber Orange */
+
+  /* Utility aliases strictly mapping to Purple, Blue, Orange */
+  --brand-green: #0284C7;      /* Ocean Blue */
+  --brand-red: #EA580C;        /* Sunset Orange */
+  --brand-yellow: #EA580C;     /* Sunset Orange */
+  --brand-pink: #7C3AED;       /* Amethyst Purple */
+  --brand-beige: #E0F2FE;
   
   --shadow-offset: 5px 5px 0px #1E293B;
-  --shadow-offset-hover: 9px 9px 0px #1E293B;
-  --card-glow: rgba(217, 119, 6, 0.22);
-  --aura-color: rgba(217, 119, 6, 0.12);
+  --shadow-offset-hover: 8px 8px 0px #1E293B;
+  --card-glow: rgba(2, 132, 199, 0.18);
+  --aura-color: rgba(124, 58, 237, 0.14);
 }
 
 html.dark {
-  /* DARK MODE: Velvet Obsidian & Rose Gold / Neon Cyber Emerald */
-  --bg-primary: #04060E;       /* Ultra-deep obsidian midnight space */
-  --bg-card: #0C101D;          /* Elevated midnight sapphire card background */
-  --text-primary: #FFFBF5;     /* Champagne pearl cream silk text */
-  --text-secondary: #CBD5E1;   /* Silvery platinum slate muted text */
-  --border-color: #334155;     /* Refined metallic border */
+  /* DARK MODE: Royal Purple Midnight Space */
+  --bg-primary: #1E0A3C;       /* Rich Royal Purple Space */
+  --bg-card: #2B1154;          /* Royal Purple Card Surface */
+  --text-primary: #F8FAFC;     /* Pearl white text */
+  --text-secondary: #CBD5E1;   /* Silvery slate muted text */
+  --border-color: #4C1D95;     /* Deep Royal Violet Border */
   
-  /* Vibrant Dark Mode Luxury Accents */
-  --brand-yellow: #FBBF24;     /* Shimmering Champagne Gold */
-  --brand-green: #34D399;      /* Glowing Jade Emerald */
-  --brand-blue: #38BDF8;       /* Electric Azure Cyan */
-  --brand-purple: #C084FC;     /* Cyber Royal Violet */
-  --brand-pink: #F472B6;       /* Rose Velvet Glow */
-  --brand-beige: #E6C894;      /* Pure Gold Beige Accent */
+  /* STRICT DARK MODE ACCENTS: PURPLE, BLUE, ORANGE */
+  --brand-purple: #C084FC;     /* Radiant Cyber Violet */
+  --brand-blue: #38BDF8;       /* Electric Azure Blue */
+  --brand-orange: #FB923C;     /* Vivid Sunset Orange */
+
+  /* Utility aliases strictly mapping to Purple, Blue, Orange */
+  --brand-green: #38BDF8;      /* Electric Azure Blue */
+  --brand-red: #FB923C;        /* Vivid Sunset Orange */
+  --brand-yellow: #FB923C;     /* Vivid Sunset Orange */
+  --brand-pink: #C084FC;       /* Radiant Cyber Violet */
+  --brand-beige: #2E1065;
   
-  --shadow-offset: 5px 5px 0px #010308;
-  --shadow-offset-hover: 9px 9px 0px #010308;
-  --card-glow: rgba(251, 191, 36, 0.3);
-  --aura-color: rgba(244, 114, 182, 0.14);
+  --shadow-offset: 5px 5px 0px #0D031A;
+  --shadow-offset-hover: 8px 8px 0px #0D031A;
+  --card-glow: rgba(192, 132, 252, 0.25);
+  --aura-color: rgba(192, 132, 252, 0.16);
 }
 
-/* LUXURY THEME PALETTE PRESETS */
+/* TYPOGRAPHY PRESETS (DYNAMIC UI/UX ACCENTS) */
 
-/* Preset 1: Gold & Obsidian (Default Imperial Luxury) */
-html[data-palette="gold"] {
-  --brand-yellow: #D97706;
-  --brand-green: #047857;
-  --brand-purple: #B45309;
+/* Mode 1: Bold Asymmetric (High-Attention Outfit / Syne Display) */
+html[data-typography="bold-asymmetric"] {
+  --font-heading: 'Syne', 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 }
-html.dark[data-palette="gold"] {
-  --brand-yellow: #FBBF24;
-  --brand-green: #34D399;
-  --brand-purple: #F59E0B;
-}
-
-/* Preset 2: Emerald Capital (Finance & Venture Vibe) */
-html[data-palette="emerald"] {
-  --brand-green: #059669;
-  --brand-yellow: #10B981;
-  --brand-blue: #0D9488;
-}
-html.dark[data-palette="emerald"] {
-  --brand-green: #34D399;
-  --brand-yellow: #6EE7B7;
-  --brand-blue: #2DD4BF;
+html[data-typography="bold-asymmetric"] .font-display {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+  font-weight: 800;
 }
 
-/* Preset 3: Royal Amethyst (Founder & Tech Innovation Vibe) */
-html[data-palette="amethyst"] {
-  --brand-purple: #7C3AED;
-  --brand-pink: #EC4899;
-  --brand-yellow: #A855F7;
+/* Mode 2: Minimalist Clean (Sleek Modern Studio Vibe) */
+html[data-typography="minimalist"] {
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 }
-html.dark[data-palette="amethyst"] {
-  --brand-purple: #C084FC;
-  --brand-pink: #F472B6;
-  --brand-yellow: #E879F9;
+html[data-typography="minimalist"] .font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.01em;
+  font-weight: 700;
 }
 
-/* Preset 4: Cyber Sapphire (Futuristic Azure Vibe) */
-html[data-palette="sapphire"] {
-  --brand-blue: #0284C7;
-  --brand-green: #06B6D4;
-  --brand-yellow: #38BDF8;
+/* Mode 3: Cyber Mono / Brutalist Code Vibe */
+html[data-typography="cyber-mono"] {
+  --font-heading: 'Space Grotesk', 'JetBrains Mono', monospace;
+  --font-body: 'Space Grotesk', sans-serif;
 }
-html.dark[data-palette="sapphire"] {
-  --brand-blue: #38BDF8;
-  --brand-green: #22D3EE;
-  --brand-yellow: #7DD3FC;
+html[data-typography="cyber-mono"] .font-display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 @layer base {
   body {
     background-color: var(--bg-primary);
     background-image: 
-      radial-gradient(circle at 20% 20%, rgba(217, 119, 6, 0.08) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(4, 120, 87, 0.08) 0%, transparent 40%);
+      radial-gradient(circle at 20% 20%, rgba(2, 132, 199, 0.15) 0%, transparent 45%),
+      radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.12) 0%, transparent 45%);
     color: var(--text-primary);
     transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
@@ -110,9 +104,8 @@ html.dark[data-palette="sapphire"] {
 
   .dark body {
     background-image: 
-      radial-gradient(circle at 20% 15%, rgba(244, 114, 182, 0.12) 0%, transparent 45%),
-      radial-gradient(circle at 80% 75%, rgba(52, 211, 153, 0.12) 0%, transparent 45%),
-      radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.08) 0%, transparent 60%);
+      radial-gradient(circle at 20% 15%, rgba(192, 132, 252, 0.18) 0%, transparent 50%),
+      radial-gradient(circle at 80% 75%, rgba(56, 189, 248, 0.14) 0%, transparent 50%);
   }
 
   /* Custom Clean Luxury Scrollbar */
@@ -128,7 +121,7 @@ html.dark[data-palette="sapphire"] {
     border-radius: 9999px;
   }
   .dark ::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #4C1D95;
     border-radius: 9999px;
   }
 }
@@ -156,12 +149,12 @@ html.dark[data-palette="sapphire"] {
     -webkit-backdrop-filter: blur(20px);
   }
   .dark .neo-glass {
-    background: rgba(12, 16, 29, 0.88);
+    background: rgba(43, 17, 84, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
 
-  /* Neo-Brutalist Buttons with Metallic Sheen */
+  /* Neo-Brutalist Buttons */
   .neo-btn {
     border: 2px solid var(--border-color);
     box-shadow: 3.5px 3.5px 0px var(--border-color);
@@ -195,7 +188,7 @@ html.dark[data-palette="sapphire"] {
     box-shadow: 3px 3px 0px var(--border-color);
   }
 
-  /* Background Floating Circles with Pulse Glow */
+  /* Background Floating Circles */
   .bg-circle {
     position: absolute;
     border-radius: 50%;
@@ -211,34 +204,67 @@ html.dark[data-palette="sapphire"] {
     100% { transform: translateY(-16px) rotate(8deg); }
   }
 
-  .bg-circle-green {
-    background-color: var(--brand-green);
-  }
-
   .bg-circle-purple {
     background-color: var(--brand-purple);
-  }
-
-  .bg-circle-yellow {
-    background-color: var(--brand-yellow);
   }
 
   .bg-circle-blue {
     background-color: var(--brand-blue);
   }
 
-  .bg-circle-white {
-    background-color: var(--brand-beige);
+  .bg-circle-orange {
+    background-color: var(--brand-orange);
   }
 
-  /* Luxury Shimmer Gold Effect */
+  .bg-circle-green {
+    background-color: var(--brand-blue);
+  }
+
+  .bg-circle-yellow {
+    background-color: var(--brand-orange);
+  }
+
+  /* Neobrutalist Sticker Badge */
+  .neo-sticker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    box-shadow: 3.5px 3.5px 0px var(--border-color);
+    transform: rotate(-1.5deg);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .neo-sticker:hover {
+    transform: rotate(0deg) scale(1.05);
+  }
+
+  /* Grid Overlay Background lines */
+  .neo-grid-bg {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  }
+  .dark .neo-grid-bg {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  }
+
+  /* Luxury Shimmer Effect */
   .shimmer-text {
     background: linear-gradient(
       90deg,
       var(--text-primary) 0%,
-      var(--brand-yellow) 40%,
-      #F59E0B 50%,
-      var(--brand-yellow) 60%,
+      var(--brand-orange) 40%,
+      #FB923C 50%,
+      var(--brand-orange) 60%,
       var(--text-primary) 100%
     );
     background-size: 200% auto;
@@ -257,12 +283,21 @@ html.dark[data-palette="sapphire"] {
   /* Mobile responsiveness polish */
   @media (max-width: 640px) {
     .neo-card {
-      border-radius: 20px;
-      box-shadow: 3.5px 3.5px 0px var(--border-color);
+      border-radius: 18px;
+      box-shadow: 3px 3px 0px var(--border-color);
     }
     .neo-btn {
       border-radius: 12px;
       box-shadow: 2.5px 2.5px 0px var(--border-color);
+    }
+    .neo-sticker {
+      font-size: 0.68rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 10px;
+    }
+    .neo-badge {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.6rem;
     }
   }
 }

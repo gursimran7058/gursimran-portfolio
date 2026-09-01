@@ -22,26 +22,26 @@ export const NowSection: React.FC = () => {
         </p>
       </div>
 
-      {/* Grid of Focus Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Grid of 4 Focus Blocks in a Row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {/* Card 1: Studying & School */}
-        <div className="neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
-          <div className="space-y-3">
-            <div className="w-10 h-10 rounded-2xl bg-neo-purple border-2 border-neo-border flex items-center justify-center text-black shadow-[2px_2px_0px_var(--border-color)]">
-              <GraduationCap className="w-5 h-5" />
+        <div className="neo-card p-4 sm:p-5 flex flex-col justify-between space-y-3">
+          <div className="space-y-2.5">
+            <div className="w-9 h-9 rounded-2xl bg-neo-blue text-white border-2 border-neo-border flex items-center justify-center shadow-[2px_2px_0px_var(--border-color)]">
+              <GraduationCap className="w-4 h-4 text-white" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-neo-text font-display">
+              <h3 className="text-base font-black text-neo-text font-display">
                 📚 Academics & Study
               </h3>
-              <span className="text-xs font-mono font-bold text-emerald-500">
+              <span className="text-[11px] font-mono font-bold text-blue-500">
                 {NOW_DATA.school}
               </span>
             </div>
-            <ul className="space-y-2 text-xs sm:text-sm text-neo-muted leading-relaxed font-medium">
+            <ul className="space-y-1.5 text-xs text-neo-muted leading-relaxed font-medium">
               {NOW_DATA.studying.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="text-neo-purple font-bold">›</span>
+                <li key={idx} className="flex items-start gap-1.5">
+                  <span className="text-blue-500 font-bold">›</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -50,18 +50,18 @@ export const NowSection: React.FC = () => {
         </div>
 
         {/* Card 2: Aiming & Goals */}
-        <div className="neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
-          <div className="space-y-3">
-            <div className="w-10 h-10 rounded-2xl bg-neo-green border-2 border-neo-border flex items-center justify-center text-black shadow-[2px_2px_0px_var(--border-color)]">
-              <Target className="w-5 h-5" />
+        <div className="neo-card p-4 sm:p-5 flex flex-col justify-between space-y-3">
+          <div className="space-y-2.5">
+            <div className="w-9 h-9 rounded-2xl bg-neo-purple text-white border-2 border-neo-border flex items-center justify-center shadow-[2px_2px_0px_var(--border-color)]">
+              <Target className="w-4 h-4 text-white" />
             </div>
-            <h3 className="text-lg font-black text-neo-text font-display">
+            <h3 className="text-base font-black text-neo-text font-display">
               🎯 What I'm Aiming For
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-neo-muted leading-relaxed font-medium">
+            <ul className="space-y-1.5 text-xs text-neo-muted leading-relaxed font-medium">
               {NOW_DATA.aiming.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="text-neo-green font-bold">›</span>
+                <li key={idx} className="flex items-start gap-1.5">
+                  <span className="text-purple-500 font-bold">›</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -70,18 +70,18 @@ export const NowSection: React.FC = () => {
         </div>
 
         {/* Card 3: Building (Ventures & Business) */}
-        <div className="neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
-          <div className="space-y-3">
-            <div className="w-10 h-10 rounded-2xl bg-neo-yellow border-2 border-neo-border flex items-center justify-center text-black shadow-[2px_2px_0px_var(--border-color)]">
-              <Hammer className="w-5 h-5" />
+        <div className="neo-card p-4 sm:p-5 flex flex-col justify-between space-y-3">
+          <div className="space-y-2.5">
+            <div className="w-9 h-9 rounded-2xl bg-neo-orange text-white border-2 border-neo-border flex items-center justify-center shadow-[2px_2px_0px_var(--border-color)]">
+              <Hammer className="w-4 h-4 text-white" />
             </div>
-            <h3 className="text-lg font-black text-neo-text font-display">
+            <h3 className="text-base font-black text-neo-text font-display">
               🛠️ What I'm Building
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-neo-muted leading-relaxed font-medium">
+            <ul className="space-y-1.5 text-xs text-neo-muted leading-relaxed font-medium">
               {NOW_DATA.building.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="text-neo-yellow font-bold">›</span>
+                <li key={idx} className="flex items-start gap-1.5">
+                  <span className="text-orange-500 font-bold">›</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -90,19 +90,19 @@ export const NowSection: React.FC = () => {
         </div>
 
         {/* Card 4: Sports & Fitness (Cricket & Gym) */}
-        <div className="neo-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
-          <div className="space-y-3">
-            <div className="w-10 h-10 rounded-2xl bg-neo-pink border-2 border-neo-border flex items-center justify-center text-black shadow-[2px_2px_0px_var(--border-color)]">
-              <Dumbbell className="w-5 h-5" />
+        <div className="neo-card p-4 sm:p-5 flex flex-col justify-between space-y-3">
+          <div className="space-y-2.5">
+            <div className="w-9 h-9 rounded-2xl bg-neo-blue text-white border-2 border-neo-border flex items-center justify-center shadow-[2px_2px_0px_var(--border-color)]">
+              <Dumbbell className="w-4 h-4 text-white" />
             </div>
-            <h3 className="text-lg font-black text-neo-text font-display">
-              🏏 Cricket & Gym Training
+            <h3 className="text-base font-black text-neo-text font-display">
+              🏏 Cricket & Gym
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {NOW_DATA.fitnessAndSports.map((act, idx) => (
                 <div
                   key={idx}
-                  className="p-3 rounded-2xl bg-neo-bg border border-neo-border text-xs font-semibold text-neo-text flex items-center gap-2"
+                  className="p-2.5 rounded-xl bg-neo-bg border border-neo-border text-[11px] font-semibold text-neo-text flex items-center gap-1.5"
                 >
                   <span>{act}</span>
                 </div>

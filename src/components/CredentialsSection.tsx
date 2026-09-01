@@ -108,7 +108,7 @@ export const CredentialsSection: React.FC = () => {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neo-yellow text-black text-xs font-mono font-extrabold border-1.5 border-black mb-2 shadow-[2px_2px_0px_#111115]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neo-orange text-white text-xs font-mono font-extrabold border-1.5 border-black mb-2 shadow-[2px_2px_0px_#111115]">
             <Trophy className="w-3.5 h-3.5" />
             <span>VERIFIED ACADEMIC & PROFESSIONAL MERIT</span>
           </div>
@@ -121,22 +121,22 @@ export const CredentialsSection: React.FC = () => {
         </p>
       </div>
 
-      {/* Grid of Credentials */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Grid of Credentials - 4 in a row (Pudding.cool style visual story grid) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {CREDENTIALS_DATA.map((item) => (
           <div
             key={item.id}
-            className="neo-card overflow-hidden flex flex-col justify-between group transition-all"
+            className="neo-card overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5"
           >
-            {/* Image Preview Box with click to open */}
+            {/* Image Preview Box - Pudding.cool Visual Thumbnail */}
             <div
               onClick={() => openDocument(item)}
-              className="relative h-56 sm:h-64 bg-zinc-100 dark:bg-zinc-900 border-b-2 border-neo-border cursor-pointer overflow-hidden flex items-center justify-center p-3"
+              className="relative h-44 sm:h-48 bg-zinc-100 dark:bg-zinc-900 border-b-2 border-neo-border cursor-pointer overflow-hidden flex items-center justify-center p-2.5"
             >
               <img
                 src={item.image}
                 alt={item.alt}
-                className="max-h-full max-w-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300 shadow-sm"
+                className="max-h-full max-w-full object-contain rounded-md group-hover:scale-105 transition-transform duration-300 shadow-sm"
                 loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
@@ -161,38 +161,38 @@ export const CredentialsSection: React.FC = () => {
                   }
                 }}
               />
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold backdrop-blur-[2px]">
-                <Maximize2 className="w-4 h-4" />
-                <span>Click to View Full Document</span>
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold backdrop-blur-[1px]">
+                <Maximize2 className="w-3.5 h-3.5" />
+                <span>Expand Story</span>
               </div>
-              <span className="absolute top-3 left-3 neo-badge bg-neo-green text-black font-extrabold text-[11px] shadow-sm">
+              <span className="absolute top-2.5 left-2.5 neo-badge bg-neo-blue text-white font-extrabold text-[10px] shadow-sm">
                 {item.badge}
               </span>
             </div>
 
             {/* Content Details */}
-            <div className="p-5 sm:p-6 space-y-4 flex-1 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs font-mono font-bold text-neo-muted">
-                  <span className="truncate max-w-[200px] sm:max-w-none">{item.organization}</span>
-                  <span className="text-emerald-500 font-extrabold shrink-0 ml-2">{item.grade}</span>
+            <div className="p-3.5 sm:p-4 space-y-3 flex-1 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-[11px] font-mono font-bold text-neo-muted">
+                  <span className="truncate max-w-[130px]">{item.organization}</span>
+                  <span className="text-blue-500 font-extrabold shrink-0 ml-1 text-[10px]">{item.grade}</span>
                 </div>
 
-                <h3 className="text-xl font-black text-neo-text font-display group-hover:text-emerald-500 transition-colors">
+                <h3 className="text-sm font-black text-neo-text font-display group-hover:text-blue-500 transition-colors leading-snug line-clamp-2">
                   {item.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-neo-muted leading-relaxed font-medium">
+                <p className="text-xs text-neo-muted leading-relaxed font-medium line-clamp-3">
                   {item.description}
                 </p>
               </div>
 
               {/* Highlights List */}
-              <div className="space-y-1.5 pt-3 border-t border-neo-border">
-                {item.highlights.map((point, idx) => (
-                  <div key={idx} className="text-xs font-mono text-neo-text flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{point}</span>
+              <div className="space-y-1 pt-2 border-t border-neo-border">
+                {item.highlights.slice(0, 2).map((point, idx) => (
+                  <div key={idx} className="text-[11px] font-mono text-neo-text flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3 h-3 text-blue-500 shrink-0 mt-0.5" />
+                    <span className="line-clamp-1">{point}</span>
                   </div>
                 ))}
               </div>
@@ -200,9 +200,9 @@ export const CredentialsSection: React.FC = () => {
               {/* Action Button */}
               <button
                 onClick={() => openDocument(item)}
-                className="mt-3 w-full py-2.5 rounded-xl bg-neo-bg border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-2 hover:bg-neo-yellow hover:text-black transition-all"
+                className="mt-2 w-full py-2 rounded-xl bg-neo-bg border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-blue hover:text-white transition-all"
               >
-                <Maximize2 className="w-3.5 h-3.5" />
+                <Maximize2 className="w-3 h-3" />
                 <span>Inspect Document</span>
               </button>
             </div>
@@ -228,7 +228,7 @@ export const CredentialsSection: React.FC = () => {
               {/* Modal Top Bar */}
               <div className="p-3 sm:p-4 border-b-2 border-neo-border flex items-center justify-between bg-neo-bg">
                 <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                  <span className="neo-badge bg-neo-green text-black text-[11px] font-mono font-black shrink-0">
+                  <span className="neo-badge bg-neo-blue text-white text-[11px] font-mono font-black shrink-0">
                     {activeImage.badge}
                   </span>
                   <div className="truncate">
@@ -260,7 +260,7 @@ export const CredentialsSection: React.FC = () => {
               {/* Modal Footer Description */}
               <div className="p-3 sm:p-4 border-t-2 border-neo-border bg-neo-bg text-xs font-mono text-neo-muted flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
                 <span className="truncate">{activeImage.description}</span>
-                <span className="text-emerald-500 font-bold shrink-0">{activeImage.grade}</span>
+                <span className="text-blue-500 font-bold shrink-0">{activeImage.grade}</span>
               </div>
             </motion.div>
           </div>

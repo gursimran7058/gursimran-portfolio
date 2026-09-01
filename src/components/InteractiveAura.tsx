@@ -27,7 +27,7 @@ export const InteractiveAura: React.FC = () => {
     };
 
     const handleClick = (e: MouseEvent) => {
-      const colors = ['#F59E0B', '#10B981', '#C084FC', '#38BDF8', '#F472B6'];
+      const colors = ['#0284C7', '#10B981', '#C084FC', '#F87171', '#34D399'];
       const newParticles: Particle[] = Array.from({ length: 8 }).map((_, i) => ({
         id: Date.now() + i + Math.random(),
         x: e.clientX,

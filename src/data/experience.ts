@@ -29,9 +29,9 @@ export const WORK_EXPERIENCE: Experience[] = [
       'Scored 96.2% aggregate in CBSE Class 10 Board Examinations with straight A1 grades across core subjects',
       'Achieved 99/100 in Introduction to Financial Markets (Code 405), 97/100 in Mathematics Standard, 96/100 in Punjabi, and 95/100 in English',
       'Awarded "Award of Honour" Trophy and "Certificate of Appreciation for Academic Excellence" by Principal & Management',
-      'Building rigorous foundation in Accountancy, Business Studies, Economics, and Financial Analysis in Class 11 Commerce'
+      'Building rigorous foundation in Accountancy, Economics, and Financial Analysis in Class 11 Commerce'
     ],
-    skills: ['CBSE 96.2%', 'Financial Markets (99/100)', 'Mathematics (97/100)', 'Accountancy', 'Economics', 'Business Studies'],
+    skills: ['CBSE 96.2%', 'Financial Markets (99/100)', 'Mathematics (97/100)', 'Accountancy', 'Economics'],
     metrics: { label: 'CBSE Class 10th', value: '96.2% (A1 All)' }
   },
   {
