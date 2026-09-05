@@ -66,6 +66,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       category: 'Honours',
       action: () => {
         window.location.hash = '#credentials';
+        document.getElementById('credentials')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
       }
     },
@@ -125,6 +126,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       category: 'Credentials',
       action: () => {
         window.location.hash = '#credentials';
+        document.getElementById('credentials')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
       }
     },

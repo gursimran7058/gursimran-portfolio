@@ -25,10 +25,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onCopyEmail,
   onCopyPhone,
   onShowToast
-}) => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    sound.playSuccess();
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth' });
+      window.history.pushState(null, '', `#${id}`);
+    }
+  };
+
   return (
     <section
-      id="hero-section"
+      id="hero"
       className="hero-section-container relative pt-28 sm:pt-24 pb-6 sm:pb-10 px-3.5 sm:px-6 overflow-hidden"
     >
       {/* Crisp Floating Circles */}
@@ -96,7 +105,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* 2 Quick Mini Badges */}
               <div className="grid grid-cols-2 gap-2">
-                <div className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
+                <a
+                  href="#credentials"
+                  onClick={(e) => scrollToSection(e, 'credentials')}
+                  className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center hover:border-neo-accent cursor-pointer transition-all block"
+                >
                   <div className="text-xl sm:text-2xl font-black font-mono text-neo-text">
                     96.2%
                   </div>
@@ -106,9 +119,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="text-[9px] font-mono text-neo-muted">
                     Award of Honour
                   </div>
-                </div>
+                </a>
 
-                <div className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center">
+                <a
+                  href="#credentials"
+                  onClick={(e) => scrollToSection(e, 'credentials')}
+                  className="p-3 rounded-2xl bg-neo-bg border-2 border-neo-border text-center hover:border-neo-accent cursor-pointer transition-all block"
+                >
                   <div className="text-xl sm:text-2xl font-black font-mono text-neo-text">
                     Excellent
                   </div>
@@ -118,7 +135,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="text-[9px] font-mono text-neo-muted">
                     Training Certificate
                   </div>
-                </div>
+                </a>
               </div>
 
               {/* Subject Breakdown Quick List */}
@@ -139,7 +156,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <a
                 href="#credentials"
-                onClick={() => sound.playSuccess()}
+                onClick={(e) => scrollToSection(e, 'credentials')}
                 className="w-full py-2.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text font-mono font-extrabold text-xs neo-btn flex items-center justify-center gap-1.5 hover:bg-neo-accent hover:text-neo-accentText transition-all"
               >
                 <span>View Trophy & Certificates</span>
@@ -192,34 +209,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 Key Credentials & Track Record
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono font-bold">
-                <div
-                  onClick={() => sound.playClick(500, 'sine')}
+                <a
+                  href="#credentials"
+                  onClick={(e) => scrollToSection(e, 'credentials')}
                   className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-accent cursor-pointer transition-all"
                 >
                   <Award className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">96.2% CBSE (99 Fin Markets, 97 Maths)</span>
-                </div>
-                <div
-                  onClick={() => sound.playClick(550, 'sine')}
+                </a>
+                <a
+                  href="#credentials"
+                  onClick={(e) => scrollToSection(e, 'credentials')}
                   className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-accent cursor-pointer transition-all"
                 >
                   <Trophy className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">Ludhiana Stock Exchange Training</span>
-                </div>
-                <div
-                  onClick={() => sound.playClick(600, 'sine')}
+                </a>
+                <a
+                  href="#work"
+                  onClick={(e) => scrollToSection(e, 'work')}
                   className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-accent cursor-pointer transition-all"
                 >
                   <HeartHandshake className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">BookMyEmergency Social Welfare Tech</span>
-                </div>
-                <div
-                  onClick={() => sound.playClick(650, 'sine')}
+                </a>
+                <a
+                  href="#work"
+                  onClick={(e) => scrollToSection(e, 'work')}
                   className="px-3 py-1.5 rounded-xl bg-neo-card border-2 border-neo-border text-neo-text flex items-center gap-2 shadow-[2px_2px_0px_var(--border-color)] hover:border-neo-accent cursor-pointer transition-all"
                 >
                   <Building2 className="w-4 h-4 text-neo-text shrink-0" />
                   <span className="truncate">Manager @ New Era Electronics</span>
-                </div>
+                </a>
               </div>
             </div>
 
@@ -236,7 +257,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="hero-action-buttons flex flex-wrap items-center gap-3 pt-0.5">
               <a
                 href="#credentials"
-                onClick={() => sound.playSuccess()}
+                onClick={(e) => scrollToSection(e, 'credentials')}
                 className="hero-btn-certificates w-full sm:w-auto px-5 py-3 rounded-2xl btn-accent font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
               >
                 <Trophy className="w-4 h-4 text-current" />
@@ -246,7 +267,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <a
                 href="#work"
-                onClick={() => sound.playClick(500, 'sine')}
+                onClick={(e) => scrollToSection(e, 'work')}
                 className="hero-btn-ventures w-full sm:w-auto px-5 py-3 rounded-2xl btn-accent font-extrabold text-xs sm:text-sm neo-btn flex items-center justify-center gap-2"
               >
                 <span>Explore Ventures</span>

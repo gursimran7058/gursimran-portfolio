@@ -34,7 +34,7 @@ export const ProjectBento: React.FC<ProjectBentoProps> = ({
   });
 
   return (
-    <section id="work-section" className="projects-section-container py-20 px-3.5 sm:px-6 max-w-6xl mx-auto border-t border-neo-border">
+    <section id="work" className="projects-section-container py-20 px-3.5 sm:px-6 max-w-6xl mx-auto border-t border-neo-border">
       {/* Section Header */}
       <div className="projects-header-container flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>

@@ -98,7 +98,7 @@ export const CredentialsSection: React.FC = () => {
 
   return (
     <section
-      id="credentials-section"
+      id="credentials"
       className="credentials-section-container py-20 px-4 sm:px-6 max-w-6xl mx-auto"
     >
       {/* Section Header */}

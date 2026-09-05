@@ -5,7 +5,7 @@ import { NOW_DATA } from '../data/now';
 
 export const NowSection: React.FC = () => {
   return (
-    <section id="now-section" className="now-section-container py-20 px-4 sm:px-6 max-w-6xl mx-auto">
+    <section id="now" className="now-section-container py-20 px-4 sm:px-6 max-w-6xl mx-auto">
       {/* Header */}
       <div className="now-section-header flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
